@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.ListViewProfissionaisPage">
+    <ListView x:Name="ListView"
+              ItemTapped="Handle_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell
+                    Text="{Binding nome}"
+                    Detail="{Binding sobrenome}"
+                    TextColor="Gray"
+                    DetailColor="Black"
+                      />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

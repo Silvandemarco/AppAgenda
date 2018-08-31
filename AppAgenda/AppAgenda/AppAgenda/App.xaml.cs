@@ -1,3 +1,4 @@
+using AppAgenda.Pages;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace AppAgenda
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new NavigationPage(new ListViewProfissionaisPage());
 		}
 
 		protected override void OnStart ()
