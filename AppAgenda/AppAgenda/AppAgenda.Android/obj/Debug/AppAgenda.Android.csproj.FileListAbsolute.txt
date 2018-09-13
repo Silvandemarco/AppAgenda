@@ -1,10 +1,10 @@
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\AppAgenda.Android.csprojAssemblyReference.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\com.companyname.AppAgenda.apk
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\com.companyname.AppAgenda-Signed.apk
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.pdb
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\AppAgenda.Android.csprojAssemblyReference.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\AppAgenda.Android.csproj.CoreCompileInputs.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\XamlC.stamp
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\AppAgenda.Android.csproj.CopyComplete
@@ -99,7 +99,6 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\android\assets\
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.dll
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\linksrc\AppAgenda.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\linksrc\AppAgenda.Android.dll.mdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.ConfirmaAgendamentoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Serviço" />
+            <Label x:Name="lServico" Text="{Binding Servico}" />
+            <Label Text="Duração" />
+            <Label x:Name="lDuracao" Text="{Binding Duracao}" />
+            <Label Text="Data" />
+            <Label x:Name="lData" Text="{Binding Data}" />
+            <Label Text="Hora" />
+            <Label x:Name="lHora" Text="{Binding Hora}" />
+            <Label Text="Valor" />
+            <Label x:Name="lValor" Text="{Binding Valor}" />
+            <Button Text="Agendar"
+                    Clicked="OnButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

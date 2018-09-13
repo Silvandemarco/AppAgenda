@@ -1,1 +1,0 @@
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.UWP\AppAgenda.UWP.csproj;x86

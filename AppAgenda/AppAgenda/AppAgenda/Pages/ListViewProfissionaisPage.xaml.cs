@@ -21,8 +21,20 @@ namespace AppAgenda.Pages
         {
             InitializeComponent();
             BindingContext = new ListViewProfissionaisViewModel();
-            ListaProfissionais();
 
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            //your code here;
+            await this.ListaProfissionais();
+        }
+        
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            //your code here;
         }
 
         async Task ListaProfissionais()
@@ -41,15 +53,13 @@ namespace AppAgenda.Pages
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            //if (e.Item == null)
-            // return;
             var prof = e.Item as Profissionais;
-            string i = prof.nome;
-            await DisplayAlert("Item Tapped", prof.nome, "OK");
+            //string i = prof.nome;
+            //await DisplayAlert("Item Tapped", prof.nome, "OK");
             //await App.Current.MainPage.Navigation.PushAsync(new ListaProfissionaisPage());
             
-            var servicos = new ListaProfissionaisPage();
-            servicos.BindingContext = prof;
+            var servicos = new ListViewServicosPage(prof);
+            //servicos.BindingContext = prof;
             await Navigation.PushAsync(servicos);
 
             //Deselect Item
