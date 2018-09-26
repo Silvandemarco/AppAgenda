@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.SignUpAddressPage">
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Always"
+                    Orientation="Vertical" 
+                    Padding="30">
+            <StackLayout>
+                <Label Text="Complete os dados de seu endereço" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="20"
+                       Margin="0,0,0,20"/>
+                <Label Text="CEP"/>
+                <Entry Keyboard="Numeric" x:Name="etCep" Focused="etCep_Focused" Completed="etCep_Completed" ReturnType="Next" Text=""/>
+                <Label x:Name="lErroCep"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Endereço"/>
+                <Entry Keyboard="Text" x:Name="etEndereco" Placeholder="" Focused="etEndereco_Focused" Completed="etEndereco_Completed" ReturnType="Next" Text=""/>
+                <Label x:Name="lErroEndereco"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Número"/>
+                <Entry Keyboard="Numeric" x:Name="etNumero" Placeholder="" Focused="etNumero_Focused" Completed="etNumero_Completed" ReturnType="Next" Text=""/>
+                <Label x:Name="lErroNumero"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Complemento"/>
+                <Entry Keyboard="Text" x:Name="etComplemento" Placeholder="" Completed="etComplemento_Completed" ReturnType="Next" Text=""/>
+                <Label Text="Bairro"/>
+                <Entry Keyboard="Text" x:Name="etBairro" Placeholder="" Focused="etBairro_Focused" Completed="etBairro_Completed" ReturnType="Next" Text=""/>
+                <Label x:Name="lErroBairro"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Cidade"/>
+                <Picker x:Name="pKCidade" Focused="pKCidade_Focused" SelectedIndexChanged="pKCidade_SelectedIndexChanged"
+                        ItemDisplayBinding="{Binding nome}"/>
+                <Label x:Name="lErroCidade"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Button x:Name="btCadastrar" Text="Cadastrar-me" Clicked="btCadastrar_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

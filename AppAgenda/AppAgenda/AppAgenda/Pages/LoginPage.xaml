@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.LoginPage"
+             Padding="30">
+    <ContentPage.ToolbarItems>
+        
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label Text="Olá! &#10; Para entrar, digite o seu e-mail"
+                   HorizontalTextAlignment="Center" 
+                   FontSize="20"
+                   Margin="0,0,0,20" />
+            <Label x:Name="lEmail" 
+                   Text="E-mail" 
+                   IsVisible="False" />
+            <Entry x:Name="emailEntry" 
+                   Placeholder="E-mail"
+                   Keyboard="Email"
+                   Margin="0,0,0,0"
+                   Focused="emailEntry_Focused"
+                   Unfocused="emailEntry_Unfocused"
+                   ReturnType="Next"
+                   Text=""
+                   Completed="emailEntry_Completed"/>
+            <Label x:Name="lErroEmail"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+            <Label x:Name="lSenha" 
+                   Text="Senha"
+                   IsVisible="False"/>
+            <Entry x:Name="passwordEntry" 
+                   Placeholder="Senha"
+                   IsPassword="true"
+                   Margin="0,0,0,0"
+                   Focused="passwordEntry_Focused"
+                   Unfocused="passwordEntry_Unfocused"
+                   Text=""
+                   Completed="passwordEntry_Completed"/>
+            <Label x:Name="lErroPassword"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+            <Button Text="Entrar" Clicked="OnLoginButtonClicked" />
+            <Button Text="Criar conta"
+                    BackgroundColor="Transparent"
+                    Clicked="OnSignUpButtonClicked"/>
+            <Label x:Name="messageLabel" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

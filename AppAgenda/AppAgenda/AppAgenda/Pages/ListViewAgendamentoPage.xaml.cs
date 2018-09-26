@@ -37,7 +37,7 @@ namespace AppAgenda.Pages
         {
             try
             {
-                var result = await ApiAgendaHttpClient.Current.BuscarHorasLivres(Servico.id_profissional, Servico.id_servico, startDatePicker.Date);
+                var result = await ApiAgendaHttpClient.Current.BuscarHorasLivres(Servico.id_profissional, Servico.id_prof_serv, startDatePicker.Date);
                 Items = result;
                 ListView.ItemsSource = Items;
             }
@@ -49,10 +49,18 @@ namespace AppAgenda.Pages
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            
             var servico = Servico;
             var hora = e.Item as string;
             var agendamento = new ConfirmaAgendamentoPage(servico, startDatePicker.Date, hora);
-            await Navigation.PushAsync(agendamento);
+            if (App.IsUserLoggedIn)
+            {
+                await Navigation.PushAsync(agendamento);
+            }
+            else
+            {
+                await Navigation.PushAsync(new LoginPage(agendamento));
+            }
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

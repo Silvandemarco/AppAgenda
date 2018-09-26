@@ -1,10 +1,10 @@
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\AppAgenda.Android.csprojAssemblyReference.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\com.companyname.AppAgenda.apk
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\com.companyname.AppAgenda-Signed.apk
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.pdb
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\AppAgenda.Android.csprojAssemblyReference.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res.flag
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\AppAgenda.Android.csproj.CoreCompileInputs.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\XamlC.stamp
@@ -28,6 +28,14 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\r
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\mipmap-xxhdpi\launcher_foreground.png
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\mipmap-xxxhdpi\icon.png
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\mipmap-xxxhdpi\launcher_foreground.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-hdpi\ic_action_settings_applications.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xhdpi\ic_action_settings_applications.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxhdpi\ic_action_settings_applications.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxxhdpi\ic_action_settings_applications.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-hdpi\ic_action_event_note.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xhdpi\ic_action_event_note.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxhdpi\ic_action_event_note.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxxhdpi\ic_action_event_note.png
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\R.cs.flag
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\R.txt
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\uploadflags.txt
@@ -99,8 +107,3 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\a
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\android\assets\System.Xml.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\android\assets\Xamarin.Forms.Core.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\android\assets\Xamarin.Forms.Xaml.pdb
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.dll
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\AppAgenda.pdb
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\AppAgenda.Android.dll.mdb
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\FormsViewGroup.dll.mdb
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

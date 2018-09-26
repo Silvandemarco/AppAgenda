@@ -1,6 +1,4 @@
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\bin\Debug\netstandard2.0\AppAgenda.deps.json
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\bin\Debug\netstandard2.0\AppAgenda.dll
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\bin\Debug\netstandard2.0\AppAgenda.pdb
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.csprojAssemblyReference.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\ConfirmaAgendamentoPage.xaml.g.cs
@@ -8,10 +6,17 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\Li
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\ListViewAgendamentoPage.xaml.g.cs
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\ListViewProfissionaisPage.xaml.g.cs
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\ListViewServicosPage.xaml.g.cs
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\LoginPage.xaml.g.cs
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\ProfissionalTabbedPage.xaml.g.cs
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\SignUpAddressPage.xaml.g.cs
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\SignUpPage.xaml.g.cs
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\TabbedPage1.xaml.g.cs
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.csproj.CoreCompileInputs.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.AssemblyInfoInputs.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.AssemblyInfo.cs
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\XamlC.stamp
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.pdb
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.csprojAssemblyReference.cache
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\bin\Debug\netstandard2.0\AppAgenda.deps.json
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\bin\Debug\netstandard2.0\AppAgenda.dll
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\bin\Debug\netstandard2.0\AppAgenda.pdb
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\XamlC.stamp

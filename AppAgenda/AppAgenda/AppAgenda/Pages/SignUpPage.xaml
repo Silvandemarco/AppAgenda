@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.SignUpPage">
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Always"
+                    Orientation="Vertical" 
+                    Padding="30">
+            <StackLayout>
+                <Label Text="Complete os seus dados" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="20"
+                       Margin="0,0,0,20"/>
+                <Label Text="Nome"/>
+                <Entry Keyboard="Text" x:Name="etName" Placeholder="" ReturnType="Next" Focused="etName_Focused" Completed="etName_Completed" Text=""/>
+                <Label x:Name="lErroNome"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Sobrenome"/>
+                <Entry Keyboard="Text" x:Name="etSobrenome" Placeholder="" ReturnType="Next" Focused="etSobrenome_Focused" Completed="etSobrenome_Completed" Text=""/>
+                <Label x:Name="lErroSobrenome"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Nascimento"/>
+                <DatePicker  x:Name="etNascimento" 
+                             Focused="etNascimento_Focused"
+                             Format="d"
+                             DateSelected="OnDateSelected"/>
+                <Label x:Name="lErroNascimento"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Telefone"/>
+                <Entry Keyboard="Telephone" x:Name="etTelefone" Placeholder="" ReturnType="Next" Completed="etTelefone_Completed" Text=""/>
+                <Label Text="E-mail"/>
+                <Entry Keyboard="Email" x:Name="etEmail" Placeholder="nome@exemplo.com" ReturnType="Next" Focused="etEmail_Focused" Completed="etEmail_Completed" Text=""/>
+                <Label x:Name="lErroEmail"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Senha"/>
+                <Entry IsPassword="True" x:Name="etSenha" Placeholder="Use entre 6 e 20 caracteres" ReturnType="Next" Focused="etSenha_Focused" Completed="etSenha_Completed" Text=""/>
+                <Label x:Name="lErroSenha"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label Text="Confirme a senha"/>
+                <Entry IsPassword="True" x:Name="etConfirmaSenha" Placeholder="Digite sua senha novamente" ReturnType="Send" Focused="etConfirmaSenha_Focused" Completed="etConfirmaSenha_Completed" Text=""/>
+                <Label x:Name="lErroConfirmaSenha"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Button x:Name="btContinuar" Text="Continuar" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

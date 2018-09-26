@@ -29,8 +29,27 @@ namespace AppAgenda.Pages
             base.OnAppearing();
             //your code here;
             await this.ListaProfissionais();
+
+            if (!App.IsUserLoggedIn)
+                tbLogin.Text = "Entrar";
+            else
+                tbLogin.Text = "Sair";
+
         }
         
+        async void Login_Clicked(object sender, ClickedEventArgs e)
+        {
+            if (!App.IsUserLoggedIn)
+            {
+                await Navigation.PushAsync(new LoginPage());
+            }
+            else
+            {
+                App.IsUserLoggedIn = false;
+                tbLogin.Text = "Entrar";
+            }
+        }
+
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -65,17 +84,22 @@ namespace AppAgenda.Pages
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
-        /*
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+
+        async private void tbProfissionais_Clicked(object sender, EventArgs e)
         {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+            await Navigation.PushAsync(new ProfissionalTabbedPage());
         }
-        */
+        /*
+async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+{
+   if (e.Item == null)
+       return;
+
+   await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+
+   //Deselect Item
+   ((ListView)sender).SelectedItem = null;
+}
+*/
     }
 }

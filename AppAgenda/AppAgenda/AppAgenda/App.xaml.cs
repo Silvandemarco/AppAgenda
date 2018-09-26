@@ -1,3 +1,4 @@
+using AppAgenda.Clients;
 using AppAgenda.Pages;
 using System;
 using Xamarin.Forms;
@@ -8,12 +9,14 @@ namespace AppAgenda
 {
 	public partial class App : Application
 	{
-		public App ()
+        public static bool IsUserLoggedIn { get; set; }
+        public static Pessoa User { get; set; }
+        public App ()
 		{
 			InitializeComponent();
 
 			MainPage = new NavigationPage(new ListViewProfissionaisPage());
-		}
+        }
 
 		protected override void OnStart ()
 		{

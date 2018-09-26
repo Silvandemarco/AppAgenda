@@ -52,7 +52,7 @@ namespace AppAgenda.Clients
                 if (string.IsNullOrWhiteSpace(quantidade))
                     throw new InvalidOperationException("Quantidade não informada");
 
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.105/profissionais/{quantidade}"))//192.168.0.106
+                using (var response = await _HttpClient.GetAsync($"http://192.168.0.106/profissionais/{quantidade}"))//192.168.0.106
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -75,7 +75,7 @@ namespace AppAgenda.Clients
         {
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.105/servicos?id_profissional={profissional}"))
+                using (var response = await _HttpClient.GetAsync($"http://192.168.0.106/servicos?id_profissional={profissional}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -99,7 +99,7 @@ namespace AppAgenda.Clients
             string strData = data.ToString("yyyy-MM-dd");
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.105/agenda?id_pessoa={profissional}&data={strData}&servico[]={servico}"))
+                using (var response = await _HttpClient.GetAsync($"http://192.168.0.106/agenda?id_pessoa={profissional}&data={strData}&servico[]={servico}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -124,10 +124,17 @@ namespace AppAgenda.Clients
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                using (var response = await _HttpClient.PostAsync($"http://192.168.0.105/agenda", content))
+                using (var response = await _HttpClient.PostAsync($"http://192.168.0.106/agenda", content))
                 {
-                    if (!response.IsSuccessStatusCode)
-                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+                    if (!response.StatusCode.Equals("401"))
+                    {
+                        if (!response.IsSuccessStatusCode)
+                            throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("Senha incorreta!");
+                    }
 
                     var result = await response.Content.ReadAsStringAsync();
 
@@ -143,13 +150,168 @@ namespace AppAgenda.Clients
             }
         }
 
+        public async Task<bool> validaLogin(User user)
+        {
+            string json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PostAsync($"http://192.168.0.106/validaLogin", content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
 
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+
+                    return JsonConvert.DeserializeObject<bool>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> InserirPessoa(Pessoa pessoa)
+        {
+            string json = JsonConvert.SerializeObject(pessoa);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PostAsync($"http://192.168.0.106/pessoas", content))
+                {
+                    if (!response.StatusCode.Equals("401"))
+                    {
+                        if (!response.IsSuccessStatusCode)
+                            throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("Senha incorreta!");
+                    }
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<Cidade>> BuscarCidades()
+        {
+            try
+            {
+                using (var response = await _HttpClient.GetAsync($"http://192.168.0.106/cidades"))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+
+                    return JsonConvert.DeserializeObject<List<Cidade>>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> EmailUnico(string _email)
+        {
+            if (!ValidarEmail(_email))
+            {
+                return false;
+            }
+            else
+            {
+                try
+                {
+                    using (var response = await _HttpClient.GetAsync($"http://192.168.0.106/validaemail?email={_email}"))
+                    {
+                        if (!response.IsSuccessStatusCode)
+                            throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+
+                        var result = await response.Content.ReadAsStringAsync();
+
+                        if (string.IsNullOrWhiteSpace(result))
+                            throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+
+                        return JsonConvert.DeserializeObject<bool>(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public bool ValidarEmail(string Email)
+        {
+            bool ValidEmail = false;
+            int indexArr = Email.IndexOf("@");
+            if (indexArr > 0)
+            {
+                if (Email.IndexOf("@", indexArr + 1) > 0)
+                {
+                    return ValidEmail;
+                }
+
+                int indexDot = Email.IndexOf(".", indexArr);
+                if (indexDot - 1 > indexArr)
+                {
+                    if (indexDot + 1 < Email.Length)
+                    {
+                        string indexDot2 = Email.Substring(indexDot + 1, 1);
+                        if (indexDot2 != ".")
+                        {
+                            ValidEmail = true;
+                        }
+                    }
+                }
+            }
+            return ValidEmail;
+        }
     }
 
     public class Rootobject
     {
         public List<Profissionais> profissionais { get; set; }
     }
+
+
+    public class Pessoa
+    {
+        public int id_pessoa { get; set; }
+        public string nome { get; set; }
+        public string sobrenome { get; set; }
+        public string nascimento { get; set; }
+        public string email { get; set; }
+        public string telefone { get; set; }
+        public string endereco { get; set; }
+        public int numero { get; set; }
+        public string complemento { get; set; }
+        public string bairro { get; set; }
+        public int id_cidade { get; set; }
+        public string cep { get; set; }
+        public string tipo { get; set; }
+        public string senha { get; set; }
+    }
+
 
     public class Profissionais
     {
@@ -171,7 +333,7 @@ namespace AppAgenda.Clients
 
     public class Cidade
     {
-        public string id_cidade { get; set; }
+        public int id_cidade { get; set; }
         public string nome { get; set; }
         public string uf { get; set; }
         public string pais { get; set; }
@@ -187,6 +349,7 @@ namespace AppAgenda.Clients
     {
         public string id_servico { get; set; }
         public string nome { get; set; }
+        public string id_prof_serv { get; set; }
         public string id_profissional { get; set; }
         public string descricao { get; set; }
         public string valor { get; set; }
@@ -198,14 +361,14 @@ namespace AppAgenda.Clients
         public int id_profissional { get; set; }
         public int id_cliente { get; set; }
         public string datetime { get; set; }
-        public List<Servico> servicos { get; set; }
+        public List<Prof_serv> prof_serv { get; set; }
     }
-    /*
-    public class Servico
+
+    public class Prof_serv
     {
-        public int id_servico { get; set; }
+        public string id_prof_serv { get; set; }
     }
-    */
+
 
 
     public class Resposta
@@ -215,6 +378,17 @@ namespace AppAgenda.Clients
         public string msg { get; set; }
     }
 
+    public class User
+    {
+        public string email { get; set; }
+        public string senha { get; set; }
+    }
+    /*
+    public class Pessoa
+    {
+        public string id_pessoa { get; set; }
+    }
+    */
 }
 
 

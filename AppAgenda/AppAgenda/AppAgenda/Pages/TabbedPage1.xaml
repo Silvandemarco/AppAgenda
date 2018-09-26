@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.TabbedPage1"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="Black"
+            android:TabbedPage.BarSelectedItemColor="Red"
+            BarBackgroundColor="#2196F3"
+            BarTextColor="White">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Tab 1" Icon="ic_action_event_note.png"/>
+  <ContentPage Title="Tab 2" />
+    <ContentPage Title="Tab 3" Icon="ic_action_settings_applications.png" />
+</TabbedPage>
