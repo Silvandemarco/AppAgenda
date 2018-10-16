@@ -15,7 +15,7 @@ namespace AppAgenda
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new ListViewProfissionaisPage());
+			MainPage = new NavigationPage(new ClienteTabbedPage());
         }
 
 		protected override void OnStart ()

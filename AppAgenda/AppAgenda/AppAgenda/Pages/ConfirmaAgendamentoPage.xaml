@@ -3,17 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAgenda.Pages.ConfirmaAgendamentoPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Serviço" />
-            <Label x:Name="lServico" Text="{Binding Servico}" />
-            <Label Text="Duração" />
-            <Label x:Name="lDuracao" Text="{Binding Duracao}" />
-            <Label Text="Data" />
-            <Label x:Name="lData" Text="{Binding Data}" />
-            <Label Text="Hora" />
-            <Label x:Name="lHora" Text="{Binding Hora}" />
-            <Label Text="Valor" />
-            <Label x:Name="lValor" Text="{Binding Valor}" />
+        <StackLayout Padding="30">
+            <Label Text="Confirmar agendamento?"
+                   HorizontalTextAlignment="Center" 
+                   FontSize="20"
+                   Margin="0,0,0,20" />
+            <Label x:Name="lServico"  HorizontalTextAlignment="Center" />
+            <Label x:Name="lDescricao"  HorizontalTextAlignment="Center"/>
+            <Label x:Name="lData" HorizontalTextAlignment="Center" />
+            <Label x:Name="lDuracao" HorizontalTextAlignment="Center" />
+            <Label x:Name="lValor" HorizontalTextAlignment="Center" />
             <Button Text="Agendar"
                     Clicked="OnButtonClicked" />
         </StackLayout>

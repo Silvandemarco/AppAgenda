@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.HorasDiaSemanaPage">
+    <ContentPage.Content>
+        <TableView RowHeight="70">
+            <TableRoot>
+                <TableSection>
+                    <SwitchCell x:Name="scDomingo" Text="Domingo" On="{Binding Items[0].status}" 
+                                Tapped="SwitchCell_Tapped" ClassId="Sunday" OnChanged="switchCell_OnChanged" />
+                    <SwitchCell x:Name="scSegundao" Text="Segunda-feira" On="{Binding Items[1].status}"  
+                                Tapped="SwitchCell_Tapped" ClassId="Monday" OnChanged="switchCell_OnChanged" />
+                    <SwitchCell x:Name="scTerca" Text="Terça-feira" On="{Binding Items[2].status}"  
+                                Tapped="SwitchCell_Tapped" ClassId="Tuesday" OnChanged="switchCell_OnChanged" />
+                    <SwitchCell x:Name="scQuarta" Text="Quarta-feira" On="{Binding Items[3].status}"  
+                                Tapped="SwitchCell_Tapped" ClassId="Wednesday" OnChanged="switchCell_OnChanged" />
+                    <SwitchCell x:Name="scQuinta" Text="Quinta-feira" On="{Binding Items[4].status}"  
+                                Tapped="SwitchCell_Tapped" ClassId="Thursday" OnChanged="switchCell_OnChanged" />
+                    <SwitchCell x:Name="scSexta" Text="Sexta-feira" On="{Binding Items[5].status}"  
+                                Tapped="SwitchCell_Tapped" ClassId="Friday" OnChanged="switchCell_OnChanged" />
+                    <SwitchCell x:Name="scSabado" Text="Sábado" On="{Binding Items[6].status}"  
+                                Tapped="SwitchCell_Tapped" ClassId="Friday" OnChanged="switchCell_OnChanged" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

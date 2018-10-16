@@ -56,6 +56,8 @@ namespace AppAgenda.Pages
                 //await App.Current.MainPage.DisplayAlert("", Resposta.msg, "Ok");
                 DependencyService.Get<IMessage>().LongAlert("Cadastro efetuado com sucesso.");
                 App.IsUserLoggedIn = true;
+                List<Pessoa> pessoas = await ApiAgendaHttpClient.Current.BuscarPessoa(Pessoa.id_pessoa);
+                App.User = pessoas[0];
                 //await Navigation.RemovePage();
                 await Navigation.PopToRootAsync(true);
                 //await Navigation.PopAsync();

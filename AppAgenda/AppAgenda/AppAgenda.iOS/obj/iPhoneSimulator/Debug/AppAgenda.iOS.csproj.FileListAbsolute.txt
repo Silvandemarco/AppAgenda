@@ -1,11 +1,3 @@
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\optimized\
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\AppAgenda.iOS.csprojAssemblyReference.cache
-D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\AppAgenda.iOS.csproj.CoreCompileInputs.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\AppAgenda.iOS.exe
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\AppAgenda.iOS.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
@@ -52,6 +44,14 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\zh-
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\AppAgenda.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\bin\iPhoneSimulator\Debug\AppAgenda.pdb
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\optimized\
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\AppAgenda.iOS.csprojAssemblyReference.cache
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\AppAgenda.iOS.csproj.CoreCompileInputs.cache
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\XamlC.stamp
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\AppAgenda.iOS.csproj.CopyComplete
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.iOS\obj\iPhoneSimulator\Debug\AppAgenda.iOS.exe

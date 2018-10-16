@@ -2,6 +2,7 @@
 using AppAgenda.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,43 +17,41 @@ namespace AppAgenda.Pages
 	{
         public string Hora { get; set; }
         public string Data { get; set; }
-        public string Servico { get; set; }
-        public string Valor { get; set; }
-        public string Duracao { get; set; }
         public int Profissional { get; set; }
-        public string IdProf_serv { get; set; }
+        public int IdProf_serv { get; set; }
         public Resposta Resposta { get; set; }
+        public DateTime DateTime { get; set; }
+        public Servicos Servicos { get; set; }
 
-        public ConfirmaAgendamentoPage (Servico servico, DateTime dateTime, string hora)
+        public ConfirmaAgendamentoPage (Servicos servico, DateTime dateTime, string hora)
         {
             
             InitializeComponent ();
             BindingContext = new ConfirmaAgendamentoViewModel();
-            this.Servico = servico.descricao;
-            this.Valor = servico.valor;
-            this.Duracao = servico.duracao;
-            this.Data = dateTime.ToString("yyyy-MM-dd");
+            this.DateTime = dateTime;
             this.Hora = hora;
             this.Profissional = Convert.ToInt32(servico.id_profissional);
             this.IdProf_serv = servico.id_prof_serv;
-            lServico.Text = Servico;
-            lValor.Text = Valor;
-            lDuracao.Text = Duracao;
-            lData.Text = Data;
-            lHora.Text = Hora;
+            this.Data = dateTime.ToString("dd/MM/yyyy");
+            this.Servicos = servico;
+            lServico.Text = Servicos.nome;
+            lDescricao.Text = Servicos.descricao;
+            lData.Text = String.Format("Data {0} hora {1}", Data, this.Hora.Substring(0,5));
+            lDuracao.Text = String.Format("{0} minutos", servico.duracao);
+            lValor.Text = String.Format("{0:C}", servico.valor);
+            
 
         }
         async void OnButtonClicked(object sender, EventArgs args)
         {
             Agenda agenda = new Agenda();
-            agenda.id_cliente = 1;
+            agenda.id_cliente = App.User.id_pessoa;
             agenda.id_profissional = this.Profissional;
             agenda.prof_serv = new List<Prof_serv>();
             Prof_serv prof_serv = new Prof_serv();
             prof_serv.id_prof_serv = this.IdProf_serv;
             agenda.prof_serv.Add(prof_serv);
-            agenda.datetime = Data + Hora;
-
+            agenda.datetime = new DateTime(this.DateTime.Year, this.DateTime.Month, this.DateTime.Day, Convert.ToInt32(Hora.Substring(0, 2)), Convert.ToInt32(Hora.Substring(3, 2)), Convert.ToInt32(Hora.Substring(6, 2)));
             try
             {
                 var result = await ApiAgendaHttpClient.Current.Agendamento(agenda);

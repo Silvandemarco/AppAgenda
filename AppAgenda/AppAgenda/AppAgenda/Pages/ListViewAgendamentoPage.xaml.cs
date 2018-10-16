@@ -16,12 +16,12 @@ namespace AppAgenda.Pages
     public partial class ListViewAgendamentoPage : ContentPage
     {
         public List<string> Items { get; set; }
-        public Servico Servico { get; set; }
+        public Servicos Servico { get; set; }
 
-        public ListViewAgendamentoPage(Servico servico)
+        public ListViewAgendamentoPage(Servicos servico)
         {
             InitializeComponent();
-            BindingContext = new ListViewAgendamentoViewModel();
+            //BindingContext = new ListViewAgendamentoViewModel();
             this.Servico = servico;
             startDatePicker.MinimumDate = DateTime.Now;
         }
@@ -40,6 +40,9 @@ namespace AppAgenda.Pages
                 var result = await ApiAgendaHttpClient.Current.BuscarHorasLivres(Servico.id_profissional, Servico.id_prof_serv, startDatePicker.Date);
                 Items = result;
                 ListView.ItemsSource = Items;
+                ListView.IsRefreshing = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
             }
             catch (Exception ex)
             {
@@ -69,6 +72,11 @@ namespace AppAgenda.Pages
         async void OnDateSelected(object sender, DateChangedEventArgs args)
         {
             await ListaHorasLivres();
+        }
+
+        private async void ListView_Refreshing(object sender, EventArgs e)
+        {
+            await this.ListaHorasLivres();
         }
     }
 }

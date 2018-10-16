@@ -2225,6 +2225,9 @@ namespace AppAgenda.Droid
 			// aapt resource value: 0x7F02006D
 			public const int avd_show_password_3 = 2130837613;
 			
+			// aapt resource value: 0x7F010002
+			public const int Bullet = 2130771970;
+			
 			// aapt resource value: 0x7F020055
 			public const int design_bottom_navigation_item_background = 2130837589;
 			
@@ -2243,11 +2246,23 @@ namespace AppAgenda.Droid
 			// aapt resource value: 0x7F02005A
 			public const int design_snackbar_background = 2130837594;
 			
-			// aapt resource value: 0x7F010002
-			public const int ic_action_event_note = 2130771970;
-			
 			// aapt resource value: 0x7F010003
-			public const int ic_action_settings_applications = 2130771971;
+			public const int ic_action_add_circle_outline = 2130771971;
+			
+			// aapt resource value: 0x7F010004
+			public const int ic_action_cancel_presentation = 2130771972;
+			
+			// aapt resource value: 0x7F010005
+			public const int ic_action_delete_outline = 2130771973;
+			
+			// aapt resource value: 0x7F010006
+			public const int ic_action_event_note = 2130771974;
+			
+			// aapt resource value: 0x7F010007
+			public const int ic_action_people_outline = 2130771975;
+			
+			// aapt resource value: 0x7F010008
+			public const int ic_action_settings_applications = 2130771976;
 			
 			// aapt resource value: 0x7F020053
 			public const int ic_audiotrack_dark = 2130837587;

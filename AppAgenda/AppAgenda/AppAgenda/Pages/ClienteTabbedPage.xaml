@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="AppAgenda.Pages.ClienteTabbedPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="Default"
+            BarTextColor="Default"
+            xmlns:local="clr-namespace:AppAgenda.Pages;assembly=AppAgenda">
+    <!--Pages can be added as references or inline-->
+    <!--<ContentPage Title="Agenda"  Icon="ic_action_event_note.png"/>-->
+    <local:ListViewProfissionaisPage Title="Profissionais" Icon="ic_action_people_outline.png"/>
+    <local:HorasDiaSemanaPage Title="Serviços" Icon="ic_action_settings_applications.png"/>
+    <local:ListViewAgendaClientePage Title="Agenda" Icon="ic_action_event_note.png"/>
+    
+    <!--<NavigationPage Title="Agenda" Icon="ic_action_event_note.png">
+        <x:Arguments>
+            <local:LoginPage />
+        </x:Arguments>
+    </NavigationPage>-->
+
+</TabbedPage>

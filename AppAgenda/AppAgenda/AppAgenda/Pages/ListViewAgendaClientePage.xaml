@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.ListViewAgendaClientePage">
+    <StackLayout>
+        <Picker x:Name="pkMes" Margin="20,20,20,20" ItemDisplayBinding="{Binding nomeMes}" SelectedIndexChanged="pkMes_SelectedIndexChanged"/>
+        <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="True"
+                           VerticalOptions="Center" />
+        
+
+        <ListView x:Name="ListView"
+                ItemTapped="Handle_ItemTapped"
+                RowHeight="120"
+                IsPullToRefreshEnabled="True"
+                Refreshing="ListView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<TextCell
+                      Text="{Binding servicos.nome}"
+                      Detail="{Binding profissional.nomeCompleto}"
+                      TextColor="Gray"
+                      DetailColor="Black"
+                        />-->
+                    <ViewCell>
+                        <Grid ColumnSpacing="0" RowSpacing="0" Padding="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Text="{Binding servicos.nome}"/>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Text="{Binding profissional.nomeCompleto}"/>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="{Binding datetime, StringFormat='{0:dd/MM/yyyy H:mm}'}"/>
+                            <!--<Button
+                                x:Name="btCancelar"
+                                ClassId="{Binding id_agenda}"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Image="ic_action_cancel_presentation.png" 
+                                ContentLayout="Right"
+                                BackgroundColor="Transparent"
+                                TextColor="Transparent"
+                                Text="     "
+                                Clicked="btCancelar_Clicked"/>-->
+                            <Button x:Name="btCancelar"
+                                ClassId="{Binding id_agenda}"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Image="ic_action_cancel_presentation.png" 
+                                ContentLayout="Right"
+                                BackgroundColor="Transparent"
+                                TextColor="Transparent"
+                                Text="{Binding status}"
+                                Clicked="btCancelar_Clicked">
+                                <Button.Triggers>
+                                    <Trigger TargetType="Button"
+                                        Property="Text" Value="C">
+                                        <Setter Property="IsVisible" Value="False" />
+                                    </Trigger>
+                                    <Trigger TargetType="Button"
+                                        Property="Text" Value="F">
+                                        <Setter Property="IsVisible" Value="False" />
+                                    </Trigger>
+                                </Button.Triggers>
+                            </Button>
+                            <Label
+                                ClassId="{Binding status}"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                IsVisible="False" 
+                                HorizontalTextAlignment="End">
+                                <Label.Triggers>
+                                    <Trigger TargetType="Label"
+                                        Property="ClassId" Value="C">
+                                        <Setter Property="IsVisible" Value="True" />
+                                        <Setter Property="Text" Value="Cancelado" />
+                                        <Setter Property="TextColor" Value="Red" />
+                                    </Trigger>
+                                    <Trigger TargetType="Label"
+                                        Property="ClassId" Value="F">
+                                        <Setter Property="IsVisible" Value="True" />
+                                        <Setter Property="Text" Value="Concluido" />
+                                    </Trigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Text="{Binding servicos.duracao, StringFormat='{0} min'}" HorizontalTextAlignment="End"/>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Text="{Binding servicos.valor, StringFormat='{0:C}'}" HorizontalTextAlignment="End"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

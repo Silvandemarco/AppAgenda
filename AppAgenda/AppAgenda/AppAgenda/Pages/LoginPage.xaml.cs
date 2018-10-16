@@ -20,10 +20,12 @@ namespace AppAgenda.Pages
 			InitializeComponent ();
             this.PageDestino = pageDestino;
 		}
+
         public LoginPage()
         {
             InitializeComponent();
         }
+
         async void OnSignUpButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignUpPage());
@@ -44,6 +46,8 @@ namespace AppAgenda.Pages
                     if (isValid)
                     {
                         App.IsUserLoggedIn = true;
+                        List<Pessoa> pessoas = await ApiAgendaHttpClient.Current.BuscarPessoa(user.email);
+                        App.User = pessoas[0];
                         if (PageDestino != null)
                         {
                             Navigation.InsertPageBefore(PageDestino as Page, this);

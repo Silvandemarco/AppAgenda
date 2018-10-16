@@ -8,10 +8,16 @@
     <StackLayout>
           <DatePicker x:Name="startDatePicker"
                     Format="d"
-                    DateSelected="OnDateSelected" />
+                    DateSelected="OnDateSelected" Margin="50,20,50,20"/>
+        <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="True"
+                           VerticalOptions="Center" />
       
       <ListView x:Name="ListView"
-                ItemTapped="Handle_ItemTapped">
+                ItemTapped="Handle_ItemTapped"
+                RowHeight="70"
+                IsPullToRefreshEnabled="True"
+                Refreshing="ListView_Refreshing">
           <ListView.ItemTemplate>
               <DataTemplate>
                   <TextCell

@@ -6,17 +6,25 @@
         <ToolbarItem x:Name="tbLogin" Order="Secondary" Text="Login" Priority="0" Clicked="Login_Clicked" />
         <ToolbarItem x:Name="tbProfissionais" Order="Secondary" Text="Profissionais" Priority="1" Clicked="tbProfissionais_Clicked" />
     </ContentPage.ToolbarItems>
-    <ListView x:Name="ListView"
-              ItemTapped="Handle_ItemTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell
-                    Text="{Binding nome}"
-                    Detail="{Binding sobrenome}"
+    <StackLayout>
+        <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="True"
+                           VerticalOptions="Center" />
+        <ListView x:Name="ListView"
+              ItemTapped="Handle_ItemTapped"
+              RowHeight="70"
+              IsPullToRefreshEnabled="True"
+              Refreshing="ListView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                    Text="{Binding nomeCompleto}"
+                    Detail="{Binding enderecoCompleto}"
                     TextColor="Gray"
                     DetailColor="Black"
                       />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

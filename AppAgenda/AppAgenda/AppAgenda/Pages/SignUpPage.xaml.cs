@@ -67,7 +67,8 @@ namespace AppAgenda.Pages
             {
                 Pessoa.nome = etName.Text.Trim();
                 Pessoa.sobrenome = etSobrenome.Text.Trim();
-                Pessoa.nascimento = etNascimento.Date.ToString("yyyy-MM-dd");
+                //Pessoa.nascimento = etNascimento.Date.ToString("yyyy-MM-dd");
+                Pessoa.nascimento = etNascimento.Date;
                 Pessoa.telefone = etTelefone.Text.Trim();
                 Pessoa.email = etEmail.Text.Trim();
                 Pessoa.senha = etSenha.Text;

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.ListViewAgendaPage">
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement"
+            RowHeight="75"
+            SeparatorVisibility="None">
+
+        <ListView.Header>
+            <StackLayout Padding="20,40,0,30">
+                <!--<Label TextColor="#3C3C3C" FontSize="30" FontFamily="sans-serif-medium" Text="Class Schedule" />
+                <Label TextColor="#3C3C3C" FontSize="18" FontFamily="sans-serif-medium" Text="8 Mar 2017" />-->
+                <DatePicker x:Name="startDatePicker"
+                    Format="d"
+                    DateSelected="startDatePicker_DateSelected" />
+            </StackLayout>
+        </ListView.Header>
+
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <!--<TextCell Text="{Binding .}" />-->
+                <ViewCell>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label HorizontalOptions="Center" Text="{Binding datetime, StringFormat='{0:H:mm}'}" TextColor="#A64C79" FontSize="20" FontFamily="sans-serif-medium" />
+
+                        <Label
+                            Grid.Column="2"
+                            Margin="20,0"
+                            Text="{Binding servicos.descricao}"
+                            TextColor="#3C3C3C"
+                            FontSize="20"
+                            FontFamily="sans-serif-medium"/>
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="20,0"
+                            Text="{Binding servicos.nome}"
+                            TextColor="#869EAC"
+                            FontSize="18"
+                            FontFamily="sans-serif"/>
+
+                        <BoxView
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Fill"
+                            WidthRequest="3"
+                            BackgroundColor="#E4B6C3"/>
+
+                        <Image Grid.Column="1" Source="Bullet.png" />
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -14,10 +14,11 @@ namespace AppAgenda.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListViewServicosPage : ContentPage
     {
-        public List<Servico> Items { get; set; }
-        public Profissionais Prof { get; set; }
+        //public List<Servico> Items { get; set; }
+        public ObservableCollection<Servicos> Items { get; set; }
+        public Pessoa Prof { get; set; }
 
-        public ListViewServicosPage(Profissionais prof)
+        public ListViewServicosPage(Pessoa prof)
         {
             InitializeComponent();
             this.Prof = prof;
@@ -35,8 +36,11 @@ namespace AppAgenda.Pages
             try
             {
                 var result = await ApiAgendaHttpClient.Current.BuscarServicos(Prof.id_pessoa);
-                Items = result.servicos;
+                Items = new ObservableCollection<Servicos>(result);
                 ListView.ItemsSource = Items;
+                ListView.IsRefreshing = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
             }
             catch (Exception ex)
             {
@@ -46,12 +50,17 @@ namespace AppAgenda.Pages
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var servico = e.Item as Servico;
+            var servico = e.Item as Servicos;
             var agendamento = new ListViewAgendamentoPage(servico);
             await Navigation.PushAsync(agendamento);
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
+        }
+
+        private async void ListView_Refreshing(object sender, EventArgs e)
+        {
+            await this.ListaServicos();
         }
         /*
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)

@@ -15,12 +15,11 @@ namespace AppAgenda.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListViewProfissionaisPage : ContentPage
     {
-        public List<Profissionais> Items { get; set; }
+        public ObservableCollection<Pessoa> Items { get; set; }
 
         public ListViewProfissionaisPage()
         {
             InitializeComponent();
-            BindingContext = new ListViewProfissionaisViewModel();
 
         }
 
@@ -56,13 +55,21 @@ namespace AppAgenda.Pages
             //your code here;
         }
 
+        private async void ListView_Refreshing(object sender, EventArgs e)
+        {
+            await this.ListaProfissionais();
+        }
+
         async Task ListaProfissionais()
         {
             try
             {
-                var result = await ApiAgendaHttpClient.Current.BuscarProfissionais("100");
-                Items = result.profissionais;
+                var result = await ApiAgendaHttpClient.Current.BuscarProf("P");
+                Items = new ObservableCollection<Pessoa>(result);
                 ListView.ItemsSource = Items;
+                ListView.IsRefreshing = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
             }
             catch (Exception ex)
             {
@@ -72,7 +79,7 @@ namespace AppAgenda.Pages
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var prof = e.Item as Profissionais;
+            var prof = e.Item as Pessoa;
             //string i = prof.nome;
             //await DisplayAlert("Item Tapped", prof.nome, "OK");
             //await App.Current.MainPage.Navigation.PushAsync(new ListaProfissionaisPage());

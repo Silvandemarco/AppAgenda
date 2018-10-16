@@ -5,8 +5,16 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             BarBackgroundColor="Default"
-            BarTextColor="Default">
+            BarTextColor="Default"
+            xmlns:local="clr-namespace:AppAgenda.Pages;assembly=AppAgenda">
   <!--Pages can be added as references or inline-->
-    <ContentPage Title="Agenda"  Icon="ic_action_event_note.png"/>
-    <ContentPage Title="Ajustes" Icon="ic_action_settings_applications.png" />
+    <!--<ContentPage Title="Agenda"  Icon="ic_action_event_note.png"/>-->
+    <local:ListViewAgendaPage Title="Agenda" Icon="ic_action_event_note.png"/>
+    <local:HorasDiaSemanaPage Title="Ajustes" Icon="ic_action_settings_applications.png"/>
+    <!--<NavigationPage Title="Agenda" Icon="ic_action_event_note.png">
+        <x:Arguments>
+            <local:LoginPage />
+        </x:Arguments>
+    </NavigationPage>-->
+
 </TabbedPage>

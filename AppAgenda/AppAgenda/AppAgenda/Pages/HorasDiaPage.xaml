@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.HorasDiaPage"
+             Padding="30">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="tbSalvar" Order="Primary" Text="SALVAR" Priority="0" Clicked="tbSalvar_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="controlGrid1" RowSpacing="1" ColumnSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <!--<Entry Text="{Binding nome}"/>-->
+                <Label Text="Hora inicial" HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Hora final" HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+                <Button BackgroundColor="Transparent" x:Name="btAdd" Image="ic_action_add_circle_outline.png" 
+                        Grid.Row="0" Grid.Column="2" Clicked="btAdd_Clicked"/>
+            </Grid>
+            <ListView x:Name="ListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItem_Clicked"/>
+                            </ViewCell.ContextActions>
+                            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <!--<Entry Text="{Binding nome}"/>-->
+                                <TimePicker x:Name="inicialTimePicker" Margin="15,0,15,0" Time="{Binding hora_inicial}" Format="H:mm" Grid.Row="0" Grid.Column="0"/>
+                                <TimePicker x:Name="finalTimePicker" Margin="15,0,15,0" Time="{Binding hora_final}" Format="H:mm" Grid.Row="0" Grid.Column="1"/>
+                                <Button BackgroundColor="Transparent" Image="ic_action_delete_outline.png" CommandParameter="{Binding .}" Grid.Row="0" Grid.Column="2" Clicked="Button_Clicked"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<Button x:Name="btSalvar" Text="Salvar" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
