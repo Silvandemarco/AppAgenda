@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAgenda.iOS", "AppAgenda\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAgenda.UWP", "AppAgenda\AppAgenda.UWP\AppAgenda.UWP.csproj", "{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAgenda", "AppAgenda\AppAgenda\AppAgenda.csproj", "{B5934FAC-0824-46BE-8711-08A0E25C6328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppAgenda", "AppAgenda\AppAgenda\AppAgenda.csproj", "{B5934FAC-0824-46BE-8711-08A0E25C6328}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -148,7 +148,6 @@ Global
 		{3AD2115B-E3AE-41DB-A031-946271F7073A}.AppStore|x86.Build.0 = AppStore|iPhone
 		{3AD2115B-E3AE-41DB-A031-946271F7073A}.AppStore|x86.Deploy.0 = AppStore|iPhone
 		{3AD2115B-E3AE-41DB-A031-946271F7073A}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{3AD2115B-E3AE-41DB-A031-946271F7073A}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{3AD2115B-E3AE-41DB-A031-946271F7073A}.Debug|Any CPU.Deploy.0 = Debug|iPhoneSimulator
 		{3AD2115B-E3AE-41DB-A031-946271F7073A}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{3AD2115B-E3AE-41DB-A031-946271F7073A}.Debug|ARM.Build.0 = Debug|iPhone
@@ -220,7 +219,6 @@ Global
 		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.AppStore|x86.Build.0 = Release|x86
 		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.AppStore|x86.Deploy.0 = Release|x86
 		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.Debug|Any CPU.Build.0 = Debug|x86
 		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.Debug|ARM.ActiveCfg = Debug|ARM
 		{358B4BA8-C353-49A7-A39A-66DB4BBB34C9}.Debug|ARM.Build.0 = Debug|ARM

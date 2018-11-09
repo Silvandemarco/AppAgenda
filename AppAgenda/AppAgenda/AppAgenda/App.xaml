@@ -3,6 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAgenda.App">
 	<Application.Resources>
-    
-	</Application.Resources>
+        <ResourceDictionary>
+            <!--  colors  -->
+            <Color x:Key="PrimaryColor">#1de9b6</Color>
+            <Color x:Key="PrimaryTextColor">#000000</Color>
+            <Color x:Key="CancelColor">#ff5252</Color>
+
+
+            <!--  styles  -->
+            <Style x:Key="NavigationPage" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource PrimaryTextColor}" />
+            </Style>
+            <Style x:Key="Button" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            </Style>
+            <Style x:Key="ButtonTransparent" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+            </Style>
+            <Style x:Key="ButtonCancel" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource CancelColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

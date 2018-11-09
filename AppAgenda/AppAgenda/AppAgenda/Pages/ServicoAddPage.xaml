@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppAgenda.Behavior"
+             x:Class="AppAgenda.Pages.ServicoAddPage"
+             Title="Novo serviço"
+             x:Name="page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="tbDelete" Order="Primary" Priority="0" Icon="ic_action_delete_outline.png" Clicked="tbDelete_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Always"
+                    Orientation="Vertical" 
+                    Padding="30">
+            <StackLayout>
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label Text="Descrição"/>
+                    <Entry Keyboard="Text" x:Name="etDescricao" Placeholder="" ReturnType="Next" Focused="etDescricao_Focused" Completed="etDescricao_Completed" Text=""/>
+                    <Label x:Name="lErroDescricao"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+
+                    <Label Text="Valor"/>
+                    <Entry Keyboard="Numeric" x:Name="etValor" Placeholder="R$ 0,00" ReturnType="Next" Focused="etValor_Focused" Completed="etValor_Completed" Text="">
+                        <Entry.Behaviors>
+                            <local:MascaraMoeda />
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Label x:Name="lErroValor"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+
+                    <Label Text="Duração em minutos"/>
+                    <Entry Keyboard="Numeric" x:Name="etDuracao" Placeholder="" ReturnType="Next" Focused="etDuracao_Focused" Completed="etDuracao_Completed" Text=""/>
+                    <Label x:Name="lErroDuracao"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                </StackLayout>
+                <StackLayout VerticalOptions="End">
+                    <Button x:Name="btSalvar" Text="Salvar" Clicked="btSalvar_Clicked" Style="{StaticResource Button}" CornerRadius="50"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

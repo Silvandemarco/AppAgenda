@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAgenda.Pages.LoginPage"
-             Padding="30">
+             Padding="30"
+             Title="Entrar">
     <ContentPage.ToolbarItems>
         
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
-            <Label Text="Olá! &#10; Para entrar, digite o seu e-mail"
+            <Label Text="Olá! &#10; Para entrar, digite o seu e-mail e senha."
                    HorizontalTextAlignment="Center" 
                    FontSize="20"
                    Margin="0,0,0,20" />
@@ -45,9 +46,13 @@
                    Margin="0,0,0,20"
                    TextColor="#B00020"
                    IsVisible="false"/>
-            <Button Text="Entrar" Clicked="OnLoginButtonClicked" />
+            <Button Text="Entrar" Clicked="OnLoginButtonClicked"
+                    Style="{StaticResource Button}"/>
             <Button Text="Criar conta"
-                    BackgroundColor="Transparent"
+                    Style="{StaticResource ButtonTransparent}"
+                    Clicked="OnSignUpButtonClicked"/>
+            <Button Text="Esqueceu a senha?"
+                    Style="{StaticResource ButtonTransparent}"
                     Clicked="OnSignUpButtonClicked"/>
             <Label x:Name="messageLabel" />
         </StackLayout>

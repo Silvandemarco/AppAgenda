@@ -30,7 +30,7 @@ namespace AppAgenda.Clients
                 if (string.IsNullOrWhiteSpace(id))
                     throw new InvalidOperationException("ID não informado");
 
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/profissionais?id={id}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/profissionais?id={id}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar o ID");
@@ -56,7 +56,7 @@ namespace AppAgenda.Clients
                 if (string.IsNullOrWhiteSpace(quantidade))
                     throw new InvalidOperationException("Quantidade não informada");
 
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/profissionais/{quantidade}"))//192.168.0.107
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/profissionais/{quantidade}"))//{_Dominio}
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -79,7 +79,7 @@ namespace AppAgenda.Clients
         {
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/servicos?id_profissional={profissional}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/servicos?id_profissional={profissional}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -103,7 +103,7 @@ namespace AppAgenda.Clients
             string strData = data.ToString("yyyy-MM-dd");
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/agenda?id_pessoa={profissional}&data={strData}&servico[]={servico}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/agenda?id_pessoa={profissional}&data={strData}&servico[]={servico}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -128,7 +128,7 @@ namespace AppAgenda.Clients
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                using (var response = await _HttpClient.PostAsync($"http://192.168.0.107/agenda", content))
+                using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/agenda", content))
                 {
                     if (!response.StatusCode.Equals("401"))
                     {
@@ -160,7 +160,7 @@ namespace AppAgenda.Clients
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                using (var response = await _HttpClient.PostAsync($"http://192.168.0.107/validaLogin", content))
+                using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/validaLogin", content))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -185,7 +185,7 @@ namespace AppAgenda.Clients
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                using (var response = await _HttpClient.PostAsync($"http://192.168.0.107/pessoas", content))
+                using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/pessoas", content))
                 {
                     if (!response.StatusCode.Equals("401"))
                     {
@@ -215,7 +215,7 @@ namespace AppAgenda.Clients
         {
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/cidades"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/cidades"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -244,7 +244,7 @@ namespace AppAgenda.Clients
             {
                 try
                 {
-                    using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/validaemail?email={_email}"))
+                    using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/validaemail?email={_email}"))
                     {
                         if (!response.IsSuccessStatusCode)
                             throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -295,7 +295,7 @@ namespace AppAgenda.Clients
         {
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/horasdia?pessoa={idPessoa}&dia={dia}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/horasdia?pessoa={idPessoa}&dia={dia}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -320,7 +320,7 @@ namespace AppAgenda.Clients
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             try
             {
-                using (var response = await _HttpClient.PostAsync($"http://192.168.0.107/horasdia", content))
+                using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/horasdia", content))
                 {
                     if (!response.StatusCode.Equals("404"))
                     {
@@ -349,7 +349,7 @@ namespace AppAgenda.Clients
             try
             {
 
-                using (var response = await _HttpClient.DeleteAsync($"http://192.168.0.107/horasdia?pessoa={horasDias.id_pessoa}&dia={horasDias.dia_semana}"))
+                using (var response = await _HttpClient.DeleteAsync($"http://{_Dominio}/horasdia?pessoa={horasDias.id_pessoa}&dia={horasDias.dia_semana}"))
                 {
                     if (!response.StatusCode.ToString().Equals("NotFound"))
                     {
@@ -375,7 +375,7 @@ namespace AppAgenda.Clients
         {
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/diasSemana?pessoa={idPessoa}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/diasSemana?pessoa={idPessoa}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -401,7 +401,7 @@ namespace AppAgenda.Clients
                 if (id == 0)
                     throw new InvalidOperationException("ID não informado");
 
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/pessoas?id={id}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/pessoas?id={id}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar o ID");
@@ -427,7 +427,7 @@ namespace AppAgenda.Clients
                 if (string.IsNullOrWhiteSpace(email))
                     throw new InvalidOperationException("E-mail não informado");
 
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/pessoas?email={email}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/pessoas?email={email}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar o ID");
@@ -453,7 +453,7 @@ namespace AppAgenda.Clients
                 if (string.IsNullOrWhiteSpace(tipo))
                     throw new InvalidOperationException("Tipo não informado");
 
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/pessoas?tipo={tipo}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/pessoas?tipo={tipo}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar.");
@@ -478,7 +478,7 @@ namespace AppAgenda.Clients
             //strData = "2018-09-13";
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://192.168.0.107/agendaProfissional?pessoa={profissional}&data={strData}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/agendaProfissional?pessoa={profissional}&data={strData}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
@@ -520,10 +520,11 @@ namespace AppAgenda.Clients
             }
         }
 
-        public async Task<Resposta> CancelarAgendamento(string id_agenda)
+        public async Task<Resposta> CancelarAgendamento(string id_agenda, string status)
         {
             var nvc = new List<KeyValuePair<string, string>>();
             nvc.Add(new KeyValuePair<string, string>("id_agenda", id_agenda));
+            nvc.Add(new KeyValuePair<string, string>("status", status));
             var content = new FormUrlEncodedContent(nvc);
             try
             {
@@ -564,6 +565,83 @@ namespace AppAgenda.Clients
                         throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
 
                     return JsonConvert.DeserializeObject<List<Meses>>(result, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> InserirServico(Servicos servico)
+        {
+            string json = JsonConvert.SerializeObject(servico);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/servicos", content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> AlterarServico(Servicos servico)
+        {
+            string json = JsonConvert.SerializeObject(servico);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PutAsync($"http://{_Dominio}/servicos", content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> DeletarServico(int servico)
+        {
+            try
+            {
+
+                using (var response = await _HttpClient.DeleteAsync($"http://{_Dominio}/servicos?id_servico={servico}"))
+                {
+                    if (!response.StatusCode.ToString().Equals("NotFound"))
+                    {
+                        if (!response.IsSuccessStatusCode)
+                            throw new InvalidOperationException("Ops, uma falha impediu a exclusão de seus dados.");
+                    }
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a exclusão de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
                 }
             }
             catch (Exception ex)
@@ -688,31 +766,30 @@ namespace AppAgenda.Clients
         public int id_cliente { get; set; }
         //[JsonConverter(typeof(DateFormatConverter), "yyyy-MM-dd")]
         public DateTime datetime { get; set; }
-        public List<Prof_serv> prof_serv { get; set; }
+        public List<Servicos> servico { get; set; }
         public Servicos servicos { get; set; }
         public Pessoa profissional { get; set; }
+        public Pessoa cliente { get; set; }
         public string status { get; set; }
     }
 
     public class Servicos
     {
         public int id_servico { get; set; }
-        public string nome { get; set; }
-        public int id_prof_serv { get; set; }
         public int id_profissional { get; set; }
         public string descricao { get; set; }
         public double valor { get; set; }
         public int duracao { get; set; }
         public string duracaoValor
         {
-            get => Convert.ToString(duracao) + " min R$ " + Convert.ToString(valor);
-        }
+            get => Convert.ToString(duracao) + " min " + string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", valor);
+    }
     }
 
-    public class Prof_serv
-    {
-        public int id_prof_serv { get; set; }
-    }
+    //public class Prof_serv
+    //{
+    //    public int id_prof_serv { get; set; }
+    //}
 
 
 

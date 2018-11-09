@@ -1377,6 +1377,12 @@ namespace AppAgenda.Droid
 			// aapt resource value: 0x7F050002
 			public const int launcher_background = 2131034114;
 			
+			// aapt resource value: 0x7F050007
+			public const int ListViewHighlighted = 2131034119;
+			
+			// aapt resource value: 0x7F050006
+			public const int ListViewSelected = 2131034118;
+			
 			// aapt resource value: 0x7F0B0026
 			public const int material_blue_grey_800 = 2131427366;
 			
@@ -2250,19 +2256,28 @@ namespace AppAgenda.Droid
 			public const int ic_action_add_circle_outline = 2130771971;
 			
 			// aapt resource value: 0x7F010004
-			public const int ic_action_cancel_presentation = 2130771972;
+			public const int ic_action_calendar_today = 2130771972;
 			
 			// aapt resource value: 0x7F010005
-			public const int ic_action_delete_outline = 2130771973;
+			public const int ic_action_cancel_presentation = 2130771973;
 			
 			// aapt resource value: 0x7F010006
-			public const int ic_action_event_note = 2130771974;
+			public const int ic_action_delete_outline = 2130771974;
 			
 			// aapt resource value: 0x7F010007
-			public const int ic_action_people_outline = 2130771975;
+			public const int ic_action_event_note = 2130771975;
 			
 			// aapt resource value: 0x7F010008
-			public const int ic_action_settings_applications = 2130771976;
+			public const int ic_action_list_alt = 2130771976;
+			
+			// aapt resource value: 0x7F010009
+			public const int ic_action_people_outline = 2130771977;
+			
+			// aapt resource value: 0x7F010010
+			public const int ic_action_settings_applications = 2130771984;
+			
+			// aapt resource value: 0x7F010011
+			public const int ic_action_trip_origin = 2130771985;
 			
 			// aapt resource value: 0x7F020053
 			public const int ic_audiotrack_dark = 2130837587;

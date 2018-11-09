@@ -7,6 +7,7 @@
         <ToolbarItem x:Name="tbProfissionais" Order="Secondary" Text="Profissionais" Priority="1" Clicked="tbProfissionais_Clicked" />
     </ContentPage.ToolbarItems>
     <StackLayout>
+        <SearchBar x:Name="sbPesquisar" Placeholder="Pesquisar" TextChanged="sbPesquisar_TextChanged"/>
         <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="True"
                            VerticalOptions="Center" />

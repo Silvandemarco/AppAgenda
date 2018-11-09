@@ -96,17 +96,11 @@ namespace AppAgenda.Pages
         {
             await Navigation.PushAsync(new ProfissionalTabbedPage());
         }
-        /*
-async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-{
-   if (e.Item == null)
-       return;
 
-   await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-   //Deselect Item
-   ((ListView)sender).SelectedItem = null;
-}
-*/
+        private void sbPesquisar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var texto = sbPesquisar.Text;
+            ListView.ItemsSource = Items.Where( x => x.nomeCompleto.ToLower().Contains(texto.ToLower()));
+        }
     }
 }

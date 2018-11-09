@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.AgendaPage"
+             Title="Agendamento">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <StackLayout VerticalOptions="CenterAndExpand">
+
+                <Label x:Name="lCliente"  HorizontalTextAlignment="Center" 
+                       TextColor="#3C3C3C"
+                       FontSize="20" />
+                <Label x:Name="lServico"  HorizontalTextAlignment="Center" 
+                       TextColor="#869EAC"
+                       FontSize="18"/>
+                <Label x:Name="lData" HorizontalTextAlignment="Center" 
+                       TextColor="#869EAC"
+                       FontSize="18"/>
+                <Label x:Name="lHora" HorizontalTextAlignment="Center" 
+                       TextColor="#869EAC"
+                       FontSize="18"/>
+                <Label x:Name="lDuracao" HorizontalTextAlignment="Center" 
+                       TextColor="#869EAC"
+                       FontSize="18"/>
+                <Label x:Name="lValor" HorizontalTextAlignment="Center" 
+                       TextColor="#869EAC"
+                       FontSize="18"/>
+                <Label x:Name="lStatus" HorizontalTextAlignment="Center" 
+                       TextColor="#869EAC"
+                       FontSize="18">
+                    <Label.Triggers>
+                        <Trigger TargetType="Label" Property="Text" Value="Cancelado">
+                            <Setter Property="TextColor" Value="#ff5252" />
+                        </Trigger>
+                        <Trigger TargetType="Label" Property="Text" Value="Finalizado">
+                            <Setter Property="TextColor" Value="#1de9b6" />
+                        </Trigger>
+                    </Label.Triggers>
+                </Label>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name="btFinalizar"  Text="Finalizar" Style="{StaticResource Button}"
+                    Clicked="btFinalizar_Clicked" HorizontalOptions="FillAndExpand" CornerRadius="50" >
+                    <Button.Triggers>
+                        <Trigger TargetType="Button" Property="ClassId" Value="C">
+                            <Setter Property="IsVisible" Value="False" />
+                        </Trigger>
+                        <Trigger TargetType="Button" Property="ClassId" Value="F">
+                            <Setter Property="IsVisible" Value="False" />
+                        </Trigger>
+                    </Button.Triggers>
+                </Button>
+                <Button x:Name="btCancelar"  Text="Cancelar" Style="{StaticResource ButtonCancel}" 
+                    Clicked="btCancelar_Clicked" HorizontalOptions="FillAndExpand" CornerRadius="50">
+                    <Button.Triggers>
+                        <Trigger TargetType="Button" Property="ClassId" Value="C">
+                            <Setter Property="IsVisible" Value="False" />
+                        </Trigger>
+                        <Trigger TargetType="Button" Property="ClassId" Value="F">
+                            <Setter Property="IsVisible" Value="False" />
+                        </Trigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>

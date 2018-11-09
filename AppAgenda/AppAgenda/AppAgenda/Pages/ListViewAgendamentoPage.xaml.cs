@@ -37,7 +37,7 @@ namespace AppAgenda.Pages
         {
             try
             {
-                var result = await ApiAgendaHttpClient.Current.BuscarHorasLivres(Servico.id_profissional, Servico.id_prof_serv, startDatePicker.Date);
+                var result = await ApiAgendaHttpClient.Current.BuscarHorasLivres(Servico.id_profissional, Servico.id_servico, startDatePicker.Date);
                 Items = result;
                 ListView.ItemsSource = Items;
                 ListView.IsRefreshing = false;

@@ -10,7 +10,7 @@
     <!--Pages can be added as references or inline-->
     <!--<ContentPage Title="Agenda"  Icon="ic_action_event_note.png"/>-->
     <local:ListViewProfissionaisPage Title="Profissionais" Icon="ic_action_people_outline.png"/>
-    <local:HorasDiaSemanaPage Title="Serviços" Icon="ic_action_settings_applications.png"/>
+    <!--<local:PesquisaTabbedPage Title="Serviços" Icon="ic_action_settings_applications.png"/>-->
     <local:ListViewAgendaClientePage Title="Agenda" Icon="ic_action_event_note.png"/>
     
     <!--<NavigationPage Title="Agenda" Icon="ic_action_event_note.png">

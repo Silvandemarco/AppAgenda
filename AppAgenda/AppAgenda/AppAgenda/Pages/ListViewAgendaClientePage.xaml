@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppAgenda.Pages.ListViewAgendaClientePage">
+             x:Class="AppAgenda.Pages.ListViewAgendaClientePage"
+             Title="Agenda">
     <StackLayout>
         <Picker x:Name="pkMes" Margin="20,20,20,20" ItemDisplayBinding="{Binding nomeMes}" SelectedIndexChanged="pkMes_SelectedIndexChanged"/>
         <ActivityIndicator x:Name="activityIndicator"
@@ -37,7 +38,7 @@
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Text="{Binding servicos.nome}"/>
+                                Text="{Binding servicos.descricao}"/>
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="0"
@@ -94,7 +95,7 @@
                                     <Trigger TargetType="Label"
                                         Property="ClassId" Value="F">
                                         <Setter Property="IsVisible" Value="True" />
-                                        <Setter Property="Text" Value="Concluido" />
+                                        <Setter Property="Text" Value="Concluído" />
                                     </Trigger>
                                 </Label.Triggers>
                             </Label>

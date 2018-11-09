@@ -29,8 +29,11 @@ namespace AppAgenda.Pages
             {
                 await Navigation.PushAsync(new LoginPage());
             }
-
-            await ListaMeses();
+            else
+            {
+                await ListaMeses();
+            }
+                
             //await this.ListaAgenda(Meses[pkMes.SelectedIndex].mes, Meses[pkMes.SelectedIndex].ano);
         }
 
@@ -60,12 +63,12 @@ namespace AppAgenda.Pages
             }
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            //await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
@@ -82,7 +85,7 @@ namespace AppAgenda.Pages
             if (cancel)
             {
                 var button = ((Button)sender);
-                var result = await ApiAgendaHttpClient.Current.CancelarAgendamento(button.ClassId);
+                var result = await ApiAgendaHttpClient.Current.CancelarAgendamento(button.ClassId, "C");
                 await this.ListaAgenda(Meses[pkMes.SelectedIndex].mes, Meses[pkMes.SelectedIndex].ano);
             }
         }

@@ -31,10 +31,10 @@ namespace AppAgenda.Pages
             this.DateTime = dateTime;
             this.Hora = hora;
             this.Profissional = Convert.ToInt32(servico.id_profissional);
-            this.IdProf_serv = servico.id_prof_serv;
+            this.IdProf_serv = servico.id_servico;
             this.Data = dateTime.ToString("dd/MM/yyyy");
             this.Servicos = servico;
-            lServico.Text = Servicos.nome;
+            lServico.Text = Servicos.descricao;
             lDescricao.Text = Servicos.descricao;
             lData.Text = String.Format("Data {0} hora {1}", Data, this.Hora.Substring(0,5));
             lDuracao.Text = String.Format("{0} minutos", servico.duracao);
@@ -47,10 +47,10 @@ namespace AppAgenda.Pages
             Agenda agenda = new Agenda();
             agenda.id_cliente = App.User.id_pessoa;
             agenda.id_profissional = this.Profissional;
-            agenda.prof_serv = new List<Prof_serv>();
-            Prof_serv prof_serv = new Prof_serv();
-            prof_serv.id_prof_serv = this.IdProf_serv;
-            agenda.prof_serv.Add(prof_serv);
+            agenda.servico = new List<Servicos>();
+            Servicos prof_serv = new Servicos();
+            prof_serv.id_servico = this.IdProf_serv;
+            agenda.servico.Add(prof_serv);
             agenda.datetime = new DateTime(this.DateTime.Year, this.DateTime.Month, this.DateTime.Day, Convert.ToInt32(Hora.Substring(0, 2)), Convert.ToInt32(Hora.Substring(3, 2)), Convert.ToInt32(Hora.Substring(6, 2)));
             try
             {
