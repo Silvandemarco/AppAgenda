@@ -34,6 +34,17 @@ namespace AppAgenda.Pages
             else
                 tbLogin.Text = "Sair";
 
+            if (App.IsUserLoggedIn) { 
+                if (App.User.tipo == "P") 
+                    tbProfissionais.Text = "Agenda profissional";
+                else
+                    tbProfissionais.Text = "Sou profissional";
+            }
+            else
+            {
+                tbProfissionais.Text = "Sou profissional";
+            }
+
         }
         
         async void Login_Clicked(object sender, ClickedEventArgs e)
@@ -94,13 +105,34 @@ namespace AppAgenda.Pages
 
         async private void tbProfissionais_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfissionalTabbedPage());
+            if (App.IsUserLoggedIn)
+            {
+                if (App.User.tipo == "P")
+                    await Navigation.PushAsync(new ProfissionalTabbedPage());
+                else
+                    await Navigation.PushAsync(new LoginPage());
+            }
+            else
+            {
+                await Navigation.PushAsync(new LoginPage());
+            }
         }
 
         private void sbPesquisar_TextChanged(object sender, TextChangedEventArgs e)
         {
             var texto = sbPesquisar.Text;
             ListView.ItemsSource = Items.Where( x => x.nomeCompleto.ToLower().Contains(texto.ToLower()));
+        }
+
+        private void tbSearch_Clicked(object sender, EventArgs e)
+        {
+            sbPesquisar.IsVisible = true;
+            sbPesquisar.Focus();
+        }
+
+        private void sbPesquisar_Unfocused(object sender, FocusEventArgs e)
+        {
+            sbPesquisar.IsVisible = false;
         }
     }
 }

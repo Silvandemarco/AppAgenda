@@ -38,14 +38,36 @@ namespace AppAgenda.Pages
 
         private async void btFinalizar_Clicked(object sender, EventArgs e)
         {
-            var result = await ApiAgendaHttpClient.Current.CancelarAgendamento(Convert.ToString(Agenda.id_agenda), "F");
-            await Navigation.PopAsync();
+            var delete = await DisplayAlert("Finalizar", "Deseja finalizar esse agendamento?", "Sim", "Não");
+            if (delete)
+            {
+                try
+                {
+                    var result = await ApiAgendaHttpClient.Current.CancelarAgendamento(Convert.ToString(Agenda.id_agenda), "F");
+                    await Navigation.PopAsync();
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Ops", ex.Message, "Ok");
+                }
+            }
         }
 
         private async void btCancelar_Clicked(object sender, EventArgs e)
         {
-            var result = await ApiAgendaHttpClient.Current.CancelarAgendamento(Convert.ToString(Agenda.id_agenda), "C");
-            await Navigation.PopAsync();
+            var delete = await DisplayAlert("Cancelar", "Deseja cancelar esse agendamento?", "Sim", "Não");
+            if (delete)
+            {
+                try
+                {
+                    var result = await ApiAgendaHttpClient.Current.CancelarAgendamento(Convert.ToString(Agenda.id_agenda), "C");
+                    await Navigation.PopAsync();
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Ops", ex.Message, "Ok");
+                }
+            }
         }
     }
 }

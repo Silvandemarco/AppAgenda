@@ -3,8 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAgenda.Pages.ListViewAgendaClientePage"
              Title="Agenda">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="tbDate" Order="Primary" Priority="0" Clicked="tbDate_Clicked" />
+        <ToolbarItem x:Name="tbIconDate" Order="Primary" Priority="1" Icon="ic_action_calendar_today.png" Clicked="tbDate_Clicked" />
+    </ContentPage.ToolbarItems>
     <StackLayout>
-        <Picker x:Name="pkMes" Margin="20,20,20,20" ItemDisplayBinding="{Binding nomeMes}" SelectedIndexChanged="pkMes_SelectedIndexChanged"/>
+        <StackLayout x:Name="slNotFound" VerticalOptions="CenterAndExpand" IsVisible="False">
+            <Label x:Name="lNotFound" Text="Nenhum agendamento encontrado :(" 
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="18"/>
+        </StackLayout>
+        <Picker x:Name="pkMes" Margin="20,20,20,20" ItemDisplayBinding="{Binding nomeMes}" SelectedIndexChanged="pkMes_SelectedIndexChanged" IsVisible="False"/>
         <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="True"
                            VerticalOptions="Center" />
@@ -38,7 +47,8 @@
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Text="{Binding servicos.descricao}"/>
+                                Text="{Binding servicos.descricao}"
+                                TextColor="Black"/>
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="0"
@@ -96,6 +106,7 @@
                                         Property="ClassId" Value="F">
                                         <Setter Property="IsVisible" Value="True" />
                                         <Setter Property="Text" Value="Concluído" />
+                                        <Setter Property="TextColor" Value="#1de9b6" />
                                     </Trigger>
                                 </Label.Triggers>
                             </Label>

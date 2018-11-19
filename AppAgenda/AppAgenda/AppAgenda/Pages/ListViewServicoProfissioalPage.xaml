@@ -5,23 +5,30 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="tbNovo" Order="Primary" Text="Novo" Priority="0" Clicked="tbNovo_Clicked" />
     </ContentPage.ToolbarItems>
-    <ActivityIndicator x:Name="activityIndicator"
-                           IsRunning="True"
-                           VerticalOptions="Center" />
-    <ListView x:Name="ListView"
-              ItemTapped="Handle_ItemTapped"
-              RowHeight="70"
-              IsPullToRefreshEnabled="True"
-              Refreshing="ListView_Refreshing">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell
-                    Text="{Binding descricao}"
-                    Detail="{Binding duracaoValor}"
-                    TextColor="Gray"
-                    DetailColor="Black"
-                      />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <StackLayout>
+        <ActivityIndicator x:Name="activityIndicator"
+                               IsRunning="True"
+                               VerticalOptions="Center" />
+        <StackLayout x:Name="slNotFound" VerticalOptions="CenterAndExpand" IsVisible="False">
+            <Label x:Name="lNotFound" Text="Nenhum serviço encontrado :(" 
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="18"/>
+        </StackLayout>
+        <ListView x:Name="ListView"
+                  ItemTapped="Handle_ItemTapped"
+                  RowHeight="70"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="ListView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                        Text="{Binding descricao}"
+                        Detail="{Binding duracaoValor}"
+                        TextColor="Black"
+                        DetailColor="Default"
+                          />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

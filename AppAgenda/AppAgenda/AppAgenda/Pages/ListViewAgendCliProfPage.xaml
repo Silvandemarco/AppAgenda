@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.ListViewAgendCliProfPage"
+             x:Name="page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="tbDate" Order="Primary" Priority="0" Clicked="tbDate_Clicked" />
+        <ToolbarItem x:Name="tbIconDate" Order="Primary" Priority="1" Icon="ic_action_calendar_today.png" Clicked="tbDate_Clicked" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Picker x:Name="pkMes" Margin="20,20,20,20" ItemDisplayBinding="{Binding nomeMes}" SelectedIndexChanged="pkMes_SelectedIndexChanged" IsVisible="False"/>
+        <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="True"
+                           VerticalOptions="Center" />
+
+
+        <ListView x:Name="ListView"
+                ItemTapped="Handle_ItemTapped"
+                RowHeight="70"
+                IsPullToRefreshEnabled="True"
+                Refreshing="ListView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                      Text="{Binding servicos.descricao}"
+                      Detail="{Binding datetime, StringFormat='{0:dd/MM/yyyy H:mm}'}"
+                      TextColor="Black"
+                      DetailColor="Default"
+                        />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

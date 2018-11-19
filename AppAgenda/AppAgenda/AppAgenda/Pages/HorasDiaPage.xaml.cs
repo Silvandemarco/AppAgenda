@@ -23,11 +23,12 @@ namespace AppAgenda.Pages
             Items = new ObservableCollection<HorasDia>();
             this.strDia = "";
         }
-        public HorasDiaPage(string _dia)
+        public HorasDiaPage(string _dia, string _diaPtbr)
         {
             InitializeComponent();
             Items = new ObservableCollection<HorasDia>();
             this.strDia = _dia;
+            page.Title = _diaPtbr;
         }
 
         protected async override void OnAppearing()

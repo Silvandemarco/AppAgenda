@@ -14,8 +14,17 @@ namespace AppAgenda
         public App ()
 		{
 			InitializeComponent();
-
-			MainPage = new NavigationPage(new ClienteTabbedPage()) { Style =  Current.Resources["NavigationPage"] as Style, BarTextColor = Color.White };
+            if (IsUserLoggedIn == true)
+            {
+                if (User.tipo != "P")
+                    MainPage = new NavigationPage(new ClienteTabbedPage());
+                else
+                    MainPage = new NavigationPage(new ProfissionalTabbedPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new ClienteTabbedPage());
+            }
         }
 
 		protected override void OnStart ()

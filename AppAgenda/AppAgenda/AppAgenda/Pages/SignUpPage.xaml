@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppAgenda.Behavior"
              x:Class="AppAgenda.Pages.SignUpPage">
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Always"
@@ -36,7 +37,11 @@
                    TextColor="#B00020"
                    IsVisible="false"/>
                 <Label Text="Telefone"/>
-                <Entry Keyboard="Telephone" x:Name="etTelefone" Placeholder="" ReturnType="Next" Completed="etTelefone_Completed" Text=""/>
+                <Entry Keyboard="Telephone" x:Name="etTelefone" Placeholder="" ReturnType="Next" Completed="etTelefone_Completed" Text="">
+                    <Entry.Behaviors>
+                        <local:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
+                    </Entry.Behaviors>
+                </Entry>
                 <Label Text="E-mail"/>
                 <Entry Keyboard="Email" x:Name="etEmail" Placeholder="nome@exemplo.com" ReturnType="Next" Focused="etEmail_Focused" Completed="etEmail_Completed" Text=""/>
                 <Label x:Name="lErroEmail"
@@ -58,7 +63,18 @@
                    Margin="0,0,0,20"
                    TextColor="#B00020"
                    IsVisible="false"/>
-                <Button x:Name="btContinuar" Text="Continuar" Clicked="Button_Clicked"/>
+                <!--<TableView RowHeight="70">
+                    <TableRoot>
+                        <TableSection>
+                            <SwitchCell x:Name="scTipo" Text="Sou profissional" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Sou profissional" HorizontalOptions="FillAndExpand"/>
+                    <Switch x:Name="swTipo"/>
+                </StackLayout>
+                <Button x:Name="btContinuar" Text="Continuar" Clicked="Button_Clicked" Style="{StaticResource Button}" Margin="0,20,0,0"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -53,7 +53,8 @@
                     Clicked="OnSignUpButtonClicked"/>
             <Button Text="Esqueceu a senha?"
                     Style="{StaticResource ButtonTransparent}"
-                    Clicked="OnSignUpButtonClicked"/>
+                    Clicked="btEsqueceuSenha_Clicked"
+                    x:Name="btEsqueceuSenha"/>
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>

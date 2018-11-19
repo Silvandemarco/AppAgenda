@@ -34,9 +34,10 @@ namespace AppAgenda.Pages
             this.IdProf_serv = servico.id_servico;
             this.Data = dateTime.ToString("dd/MM/yyyy");
             this.Servicos = servico;
-            lServico.Text = Servicos.descricao;
             lDescricao.Text = Servicos.descricao;
-            lData.Text = String.Format("Data {0} hora {1}", Data, this.Hora.Substring(0,5));
+            //lData.Text = String.Format("Data {0} hora {1}", Data, this.Hora.Substring(0,5));
+            lData.Text = Data;
+            lHora.Text = this.Hora.Substring(0, 5);
             lDuracao.Text = String.Format("{0} minutos", servico.duracao);
             lValor.Text = String.Format("{0:C}", servico.valor);
             
@@ -51,7 +52,7 @@ namespace AppAgenda.Pages
             Servicos prof_serv = new Servicos();
             prof_serv.id_servico = this.IdProf_serv;
             agenda.servico.Add(prof_serv);
-            agenda.datetime = new DateTime(this.DateTime.Year, this.DateTime.Month, this.DateTime.Day, Convert.ToInt32(Hora.Substring(0, 2)), Convert.ToInt32(Hora.Substring(3, 2)), Convert.ToInt32(Hora.Substring(6, 2)));
+            agenda.datetime = new DateTime(this.DateTime.Year, this.DateTime.Month, this.DateTime.Day, Convert.ToInt32(Hora.Substring(0, 2)), Convert.ToInt32(Hora.Substring(3, 2)), 0);
             try
             {
                 var result = await ApiAgendaHttpClient.Current.Agendamento(agenda);

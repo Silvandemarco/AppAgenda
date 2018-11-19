@@ -2274,10 +2274,13 @@ namespace AppAgenda.Droid
 			public const int ic_action_people_outline = 2130771977;
 			
 			// aapt resource value: 0x7F010010
-			public const int ic_action_settings_applications = 2130771984;
+			public const int ic_action_search = 2130771984;
 			
 			// aapt resource value: 0x7F010011
-			public const int ic_action_trip_origin = 2130771985;
+			public const int ic_action_settings_applications = 2130771985;
+			
+			// aapt resource value: 0x7F010012
+			public const int ic_action_trip_origin = 2130771986;
 			
 			// aapt resource value: 0x7F020053
 			public const int ic_audiotrack_dark = 2130837587;

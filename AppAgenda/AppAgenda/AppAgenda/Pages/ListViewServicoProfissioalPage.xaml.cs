@@ -39,10 +39,23 @@ namespace AppAgenda.Pages
                 ListView.IsRefreshing = false;
                 activityIndicator.IsRunning = false;
                 activityIndicator.IsVisible = false;
+                if (Items.Count == 0)
+                {
+                    slNotFound.IsVisible = true;
+                    ListView.IsVisible = false;
+                }
+                else
+                {
+                    slNotFound.IsVisible = false;
+                    ListView.IsVisible = true;
+                }
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Ah não", ex.Message, "Ok");
+                ListView.IsRefreshing = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
             }
         }
 

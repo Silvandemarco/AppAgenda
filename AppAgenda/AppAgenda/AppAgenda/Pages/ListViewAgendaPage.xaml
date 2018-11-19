@@ -2,111 +2,125 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAgenda.Pages.ListViewAgendaPage"
-             x:Name="page">
+             x:Name="page" >
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="tbDate" Order="Primary" Priority="0" Icon="ic_action_calendar_today.png" Clicked="tbDate_Clicked" />
+        <ToolbarItem x:Name="tbDate" Order="Primary" Priority="0" Clicked="tbDate_Clicked" />
+        <ToolbarItem x:Name="tbIconDate" Order="Primary" Priority="1" Icon="ic_action_calendar_today.png" Clicked="tbDate_Clicked" />
+        <ToolbarItem x:Name="tbAgendar" Order="Secondary" Priority="3" Text="Agendar" Clicked="tbAgendar_Clicked" />
     </ContentPage.ToolbarItems>
-    <ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement"
-            RowHeight="75"
-            SeparatorVisibility="None">
+    <StackLayout>
+        <ActivityIndicator x:Name="activityIndicator"
+                               IsRunning="True"
+                               VerticalOptions="Center" />
 
-        <ListView.Header>
-            <StackLayout Padding="20,40,0,30">
-                <!--<Label TextColor="#3C3C3C" FontSize="30" FontFamily="sans-serif-medium" Text="Class Schedule" />
-                <Label TextColor="#3C3C3C" FontSize="18" FontFamily="sans-serif-medium" Text="8 Mar 2017" />-->
-                <DatePicker x:Name="startDatePicker"
-                    Format="d"
-                    DateSelected="startDatePicker_DateSelected" IsVisible="False"/>
-            </StackLayout>
-        </ListView.Header>
+        <StackLayout x:Name="slNotFound" VerticalOptions="CenterAndExpand" IsVisible="False">
+            <Label x:Name="lNotFound" Text="Nenhum agendamento encontrado neste dia :(" 
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="18"/>
+        </StackLayout>
 
-        <!--Built in Cells-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <!--<TextCell Text="{Binding .}" />-->
-                <ViewCell>
-                    <Grid ColumnSpacing="0" RowSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+        <ListView x:Name="MyListView"
+                ItemsSource="{Binding Items}"
+                ItemTapped="Handle_ItemTapped"
+                CachingStrategy="RecycleElement"
+                RowHeight="75"
+                SeparatorVisibility="None"
+                IsPullToRefreshEnabled="True"
+                Refreshing="MyListView_Refreshing" >
+
+            <ListView.Header>
+                <StackLayout HeightRequest="20">
+                    <DatePicker x:Name="startDatePicker"
+                        Format="d"
+                        DateSelected="startDatePicker_DateSelected" IsVisible="False"/>
+                </StackLayout>
+            </ListView.Header>
+
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<TextCell Text="{Binding .}" />-->
+                    <ViewCell>
+                        <Grid ColumnSpacing="0" RowSpacing="0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
 
 
-                        <Label
-                            Grid.Column="1"
-                            Margin="20,0"
-                            Text="{Binding cliente.nomeCompleto}"
-                            TextColor="#3C3C3C"
-                            FontSize="20"
-                            FontFamily="sans-serif-medium"
-                            ClassId="{Binding status}">
-                            <Label.Triggers>
-                                <Trigger TargetType="Label" Property="ClassId" Value="C">
-                                    <Setter Property="TextColor" Value="#3C3C3C" />
-                                </Trigger>
-                                <Trigger TargetType="Label" Property="ClassId" Value="F">
-                                    <Setter Property="TextColor" Value="#3C3C3C" />
-                                </Trigger>
-                            </Label.Triggers>
-                        </Label>
+                            <Label
+                                Grid.Column="1"
+                                Margin="20,0"
+                                Text="{Binding cliente.nomeCompleto}"
+                                TextColor="#3C3C3C"
+                                FontSize="20"
+                                FontFamily="sans-serif-medium"
+                                ClassId="{Binding status}">
+                                <Label.Triggers>
+                                    <Trigger TargetType="Label" Property="ClassId" Value="C">
+                                        <Setter Property="TextColor" Value="#3C3C3C" />
+                                    </Trigger>
+                                    <Trigger TargetType="Label" Property="ClassId" Value="F">
+                                        <Setter Property="TextColor" Value="#3C3C3C" />
+                                    </Trigger>
+                                </Label.Triggers>
+                            </Label>
 
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="20,0"
-                            Text="{Binding servicos.descricao}"
-                            TextColor="#869EAC"
-                            FontSize="18"
-                            FontFamily="sans-serif"/>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="20,0"
+                                Text="{Binding servicos.descricao}"
+                                TextColor="#869EAC"
+                                FontSize="18"
+                                FontFamily="sans-serif"/>
 
-                        <BoxView
-                            Grid.Row="1"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Fill"
-                            WidthRequest="3"
-                            BackgroundColor="#40c4ff"
-                            ClassId="{Binding status}">
-                            <BoxView.Triggers>
-                                <Trigger TargetType="BoxView" Property="ClassId" Value="C">
-                                    <Setter Property="BackgroundColor" Value="#ff5252" />
-                                </Trigger>
-                                <Trigger TargetType="BoxView" Property="ClassId" Value="F">
-                                    <Setter Property="BackgroundColor" Value="#1de9b6" />
-                                </Trigger>
-                            </BoxView.Triggers>
-                        </BoxView>
-                        <Label HorizontalOptions="Center" 
-                               Text="{Binding datetime, StringFormat='{0:H:mm}'}" 
-                               TextColor="#40c4ff" 
-                               FontSize="20" 
-                               FontFamily="sans-serif-medium" 
-                               BackgroundColor="Default"
-                               x:Name="hora"
-                               Grid.Row="0"
-                               ClassId="{Binding status}">
-                            <Label.Triggers>
-                                <Trigger TargetType="Label" Property="ClassId" Value="C">
-                                    <Setter Property="TextColor" Value="#ff5252" />
-                                </Trigger>
-                                <Trigger TargetType="Label" Property="ClassId" Value="F">
-                                    <Setter Property="TextColor" Value="#1de9b6" />
-                                </Trigger>
-                            </Label.Triggers>
-                        </Label>
+                            <BoxView
+                                Grid.Row="1"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Fill"
+                                WidthRequest="3"
+                                BackgroundColor="#40c4ff"
+                                ClassId="{Binding status}">
+                                <BoxView.Triggers>
+                                    <Trigger TargetType="BoxView" Property="ClassId" Value="C">
+                                        <Setter Property="BackgroundColor" Value="#ff5252" />
+                                    </Trigger>
+                                    <Trigger TargetType="BoxView" Property="ClassId" Value="F">
+                                        <Setter Property="BackgroundColor" Value="#1de9b6" />
+                                    </Trigger>
+                                </BoxView.Triggers>
+                            </BoxView>
+                            <Label HorizontalOptions="Center" 
+                                   Text="{Binding datetime, StringFormat='{0:H:mm}'}" 
+                                   TextColor="#40c4ff" 
+                                   FontSize="20" 
+                                   FontFamily="sans-serif-medium" 
+                                   BackgroundColor="Default"
+                                   x:Name="hora"
+                                   Grid.Row="0"
+                                   ClassId="{Binding status}">
+                                <Label.Triggers>
+                                    <Trigger TargetType="Label" Property="ClassId" Value="C">
+                                        <Setter Property="TextColor" Value="#ff5252" />
+                                    </Trigger>
+                                    <Trigger TargetType="Label" Property="ClassId" Value="F">
+                                        <Setter Property="TextColor" Value="#1de9b6" />
+                                    </Trigger>
+                                </Label.Triggers>
+                            </Label>
 
-                        <!--<Image Grid.Column="1" Source="ic_action_trip_origin.png" />-->
+                            <!--<Image Grid.Column="1" Source="ic_action_trip_origin.png" />-->
 
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

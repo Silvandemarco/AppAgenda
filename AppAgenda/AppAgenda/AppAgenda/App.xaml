@@ -18,14 +18,17 @@
             <Style x:Key="Button" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
                 <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="CornerRadius" Value="50" />
             </Style>
             <Style x:Key="ButtonTransparent" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="CornerRadius" Value="50" />
             </Style>
             <Style x:Key="ButtonCancel" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource CancelColor}" />
                 <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="CornerRadius" Value="50" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

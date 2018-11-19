@@ -51,7 +51,7 @@ namespace AppAgenda.Pages
         async private void SwitchCell_Tapped(object sender, EventArgs e)
         {
             var switchCell = ((SwitchCell)sender);
-            await Navigation.PushAsync(new HorasDiaPage(switchCell.ClassId));
+            await Navigation.PushAsync(new HorasDiaPage(switchCell.ClassId, switchCell.Text));
         }
 
         private async void switchCell_OnChanged(object sender, ToggledEventArgs e)
@@ -66,7 +66,7 @@ namespace AppAgenda.Pages
             {
                 var result = await ApiAgendaHttpClient.Current.BuscarHorasDia(App.User.id_pessoa, switchCell.ClassId);
                 if (result.Count == 0)
-                    await Navigation.PushAsync(new HorasDiaPage(switchCell.ClassId));
+                    await Navigation.PushAsync(new HorasDiaPage(switchCell.ClassId, switchCell.Text));
             }
             
         }

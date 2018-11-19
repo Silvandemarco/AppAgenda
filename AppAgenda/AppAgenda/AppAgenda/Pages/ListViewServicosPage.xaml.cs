@@ -22,6 +22,7 @@ namespace AppAgenda.Pages
         {
             InitializeComponent();
             this.Prof = prof;
+            page.Title = prof.nomeCompleto;
 
         }
         protected async override void OnAppearing()
@@ -38,6 +39,16 @@ namespace AppAgenda.Pages
                 var result = await ApiAgendaHttpClient.Current.BuscarServicos(Prof.id_pessoa);
                 Items = new ObservableCollection<Servicos>(result);
                 ListView.ItemsSource = Items;
+                if (Items.Count == 0)
+                {
+                    slNotFound.IsVisible = true;
+                    ListView.IsVisible = false;
+                }
+                else
+                {
+                    slNotFound.IsVisible = false;
+                    ListView.IsVisible = true;
+                }
                 ListView.IsRefreshing = false;
                 activityIndicator.IsRunning = false;
                 activityIndicator.IsVisible = false;

@@ -19,7 +19,7 @@
                     <SwitchCell x:Name="scSexta" Text="Sexta-feira" On="{Binding Items[5].status}"  
                                 Tapped="SwitchCell_Tapped" ClassId="Friday" OnChanged="switchCell_OnChanged" />
                     <SwitchCell x:Name="scSabado" Text="Sábado" On="{Binding Items[6].status}"  
-                                Tapped="SwitchCell_Tapped" ClassId="Friday" OnChanged="switchCell_OnChanged" />
+                                Tapped="SwitchCell_Tapped" ClassId="Saturday" OnChanged="switchCell_OnChanged" />
                 </TableSection>
             </TableRoot>
         </TableView>

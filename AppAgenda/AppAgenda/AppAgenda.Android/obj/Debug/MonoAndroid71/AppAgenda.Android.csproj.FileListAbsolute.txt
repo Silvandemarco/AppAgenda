@@ -62,6 +62,10 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\r
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-hdpi\ic_action_calendar_today.png
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxhdpi\ic_action_calendar_today.png
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxxhdpi\ic_action_calendar_today.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-hdpi\ic_action_search.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xhdpi\ic_action_search.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxhdpi\ic_action_search.png
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\res\drawable-xxxhdpi\ic_action_search.png
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\R.cs.flag
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\R.txt
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\uploadflags.txt
@@ -134,6 +138,7 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\a
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\android\assets\Xamarin.Forms.Core.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\android\assets\Xamarin.Forms.Xaml.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\bin\Debug\AppAgenda.Android.dll
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\AppAgenda.pdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\AppAgenda.Android.dll.mdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\FormsViewGroup.dll.mdb
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda.Android\obj\Debug\MonoAndroid71\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

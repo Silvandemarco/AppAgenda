@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAgenda.Pages.ListViewProfissionaisPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="tbLogin" Order="Secondary" Text="Login" Priority="0" Clicked="Login_Clicked" />
-        <ToolbarItem x:Name="tbProfissionais" Order="Secondary" Text="Profissionais" Priority="1" Clicked="tbProfissionais_Clicked" />
+        <ToolbarItem x:Name="tbSearch" Order="Primary" Icon="ic_action_search.png" Priority="0" Clicked="tbSearch_Clicked" />
+        <ToolbarItem x:Name="tbLogin" Order="Secondary" Text="Login" Priority="1" Clicked="Login_Clicked" />
+        <ToolbarItem x:Name="tbProfissionais" Order="Secondary" Text="Profissionais" Priority="2" Clicked="tbProfissionais_Clicked" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <SearchBar x:Name="sbPesquisar" Placeholder="Pesquisar" TextChanged="sbPesquisar_TextChanged"/>
+        <SearchBar x:Name="sbPesquisar" Placeholder="Pesquisar" TextChanged="sbPesquisar_TextChanged" Unfocused="sbPesquisar_Unfocused" IsVisible="False" />
         <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="True"
                            VerticalOptions="Center" />
@@ -21,8 +22,8 @@
                     <TextCell
                     Text="{Binding nomeCompleto}"
                     Detail="{Binding enderecoCompleto}"
-                    TextColor="Gray"
-                    DetailColor="Black"
+                    TextColor="Black"
+                    DetailColor="Default"
                       />
                 </DataTemplate>
             </ListView.ItemTemplate>

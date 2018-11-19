@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppAgenda.Pages.SignUpAddressPage">
+             x:Class="AppAgenda.Pages.SignUpAddressPage"
+             xmlns:local="clr-namespace:AppAgenda.Behavior">
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Always"
                     Orientation="Vertical" 
@@ -12,7 +13,11 @@
                        FontSize="20"
                        Margin="0,0,0,20"/>
                 <Label Text="CEP"/>
-                <Entry Keyboard="Numeric" x:Name="etCep" Focused="etCep_Focused" Completed="etCep_Completed" ReturnType="Next" Text=""/>
+                <Entry Keyboard="Numeric" x:Name="etCep" Focused="etCep_Focused" Completed="etCep_Completed" ReturnType="Next" Text="">
+                    <Entry.Behaviors>
+                        <local:MaskedBehavior Mask="XXXXX-XXX" />
+                    </Entry.Behaviors>
+                </Entry>
                 <Label x:Name="lErroCep"
                    Text="Complete este dado."
                    Margin="0,0,0,20"
@@ -49,7 +54,7 @@
                    Margin="0,0,0,20"
                    TextColor="#B00020"
                    IsVisible="false"/>
-                <Button x:Name="btCadastrar" Text="Cadastrar-me" Clicked="btCadastrar_Clicked"/>
+                <Button x:Name="btCadastrar" Text="Cadastrar-me" Clicked="btCadastrar_Clicked" Style="{StaticResource Button}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

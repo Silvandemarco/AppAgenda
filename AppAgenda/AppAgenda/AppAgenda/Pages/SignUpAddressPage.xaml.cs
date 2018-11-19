@@ -53,6 +53,7 @@ namespace AppAgenda.Pages
             {
                 var result = await ApiAgendaHttpClient.Current.InserirPessoa(Pessoa);
                 Resposta = result;
+                Pessoa.id_pessoa = Resposta.id;
                 //await App.Current.MainPage.DisplayAlert("", Resposta.msg, "Ok");
                 DependencyService.Get<IMessage>().LongAlert("Cadastro efetuado com sucesso.");
                 App.IsUserLoggedIn = true;
@@ -86,13 +87,14 @@ namespace AppAgenda.Pages
             }
             else
             {
-                Pessoa.cep = etCep.Text.Trim();
+                Pessoa.cep = etCep.Text.Trim().Replace("-","");
                 Pessoa.endereco = etEndereco.Text.Trim();
                 Pessoa.numero = Convert.ToInt32(etNumero.Text.Trim());
                 Pessoa.complemento = etComplemento.Text.Trim();
                 Pessoa.bairro = etBairro.Text.Trim();
                 Pessoa.id_cidade = Items[pKCidade.SelectedIndex].id_cidade;
-                Pessoa.tipo = "C";
+                //Pessoa.tipo = "C";
+                Pessoa.cidade = Items[pKCidade.SelectedIndex];
 
                 await CadastrarPessoa();
             }

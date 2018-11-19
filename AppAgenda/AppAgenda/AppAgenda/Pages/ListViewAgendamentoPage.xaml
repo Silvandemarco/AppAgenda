@@ -1,31 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppAgenda.Pages.ListViewAgendamentoPage">
+             x:Class="AppAgenda.Pages.ListViewAgendamentoPage"
+             x:Name="page">
     <ContentPage.ToolbarItems>
-      
+        <ToolbarItem x:Name="tbDate" Order="Primary" Priority="0" Clicked="tbDate_Clicked" />
+        <ToolbarItem x:Name="tbIconDate" Order="Primary" Priority="1" Icon="ic_action_calendar_today.png" Clicked="tbDate_Clicked" />
     </ContentPage.ToolbarItems>
-    <StackLayout>
-          <DatePicker x:Name="startDatePicker"
-                    Format="d"
-                    DateSelected="OnDateSelected" Margin="50,20,50,20"/>
+    <StackLayout Padding="30,30,30,30">
+        <StackLayout x:Name="slNotFound" VerticalOptions="CenterAndExpand" IsVisible="False">
+            <Label x:Name="lNotFound" Text="Nenhum horario disponível neste dia :(" 
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="18"/>
+        </StackLayout>
+        <DatePicker x:Name="startDatePicker"
+                Format="d"
+                DateSelected="OnDateSelected"
+                IsVisible="False" />
         <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="True"
                            VerticalOptions="Center" />
-      
-      <ListView x:Name="ListView"
-                ItemTapped="Handle_ItemTapped"
-                RowHeight="70"
+        
+        <ListView x:Name="ListView" 
                 IsPullToRefreshEnabled="True"
-                Refreshing="ListView_Refreshing">
+                Refreshing="ListView_Refreshing"
+                SeparatorVisibility="None" 
+                RowHeight="70" >
           <ListView.ItemTemplate>
               <DataTemplate>
-                  <TextCell
+                    <!--<TextCell
                       Text="{Binding .}"
                       TextColor="Gray"
                       DetailColor="Black"
-                        />
-              </DataTemplate>
+                        />-->
+                    <!-- Two-column grid -->
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                            <Button Text="{Binding Column1, StringFormat='{0:hh}:{0:mm}'}" Style="{StaticResource Button}" HeightRequest="30"
+                                    HorizontalOptions="FillAndExpand" CornerRadius="50" Clicked="Button_Clicked">
+                            </Button>
+                            <Button Text="{Binding Column2, StringFormat='{0:hh}:{0:mm}'}" Style="{StaticResource Button}" HeightRequest="30"
+                                    HorizontalOptions="FillAndExpand" CornerRadius="50"  Clicked="Button_Clicked">
+                                <Button.Triggers>
+                                    <Trigger TargetType="Button"
+                                        Property="Text" Value="00:00">
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </Trigger>
+                                    <Trigger TargetType="Button"
+                                        Property="Text" Value="00:00">
+                                        <Setter Property="TextColor" Value="Transparent" />
+                                    </Trigger>
+                                </Button.Triggers>
+                            </Button>
+                            <Button Text="{Binding Column3, StringFormat='{0:hh}:{0:mm}'}" Style="{StaticResource Button}" HeightRequest="30"
+                                    HorizontalOptions="FillAndExpand" CornerRadius="50" Clicked="Button_Clicked" >
+                                <Button.Triggers>
+                                    <Trigger TargetType="Button"
+                                        Property="Text" Value="00:00">
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </Trigger>
+                                    <Trigger TargetType="Button"
+                                        Property="Text" Value="00:00">
+                                        <Setter Property="TextColor" Value="Transparent" />
+                                    </Trigger>
+                                </Button.Triggers>
+                            </Button>
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
           </ListView.ItemTemplate>
       </ListView>
       </StackLayout>

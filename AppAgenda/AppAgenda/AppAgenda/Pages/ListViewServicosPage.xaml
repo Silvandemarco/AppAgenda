@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppAgenda.Pages.ListViewServicosPage">
+             x:Class="AppAgenda.Pages.ListViewServicosPage"
+             x:Name="page">
     <StackLayout>
-
+        <StackLayout x:Name="slNotFound" VerticalOptions="CenterAndExpand" IsVisible="False">
+            <Label x:Name="lNotFound" Text="Nenhum serviço encontrado :(" 
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="18"/>
+        </StackLayout>
         <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="True"
                            VerticalOptions="Center" />
@@ -17,8 +22,8 @@
                     <TextCell
                     Text="{Binding descricao}"
                     Detail="{Binding duracaoValor}"
-                    TextColor="Gray"
-                    DetailColor="Black"
+                    TextColor="Black"
+                    DetailColor="Default"
                       />
                 </DataTemplate>
             </ListView.ItemTemplate>

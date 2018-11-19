@@ -14,11 +14,13 @@ namespace AppAgenda.Pages
     public partial class ListViewAgendaPage : ContentPage
     {
         public ObservableCollection<Agenda> Items { get; set; }
-
+        public string DateFormat { get; set; }
         public ListViewAgendaPage()
         {
             InitializeComponent();
             Items = new ObservableCollection<Agenda>();
+            DateFormat = "dddd, d";
+            tbDate.Text = startDatePicker.Date.ToString(DateFormat);
         }
 
         protected async override void OnAppearing()
@@ -35,10 +37,26 @@ namespace AppAgenda.Pages
                 var result = await ApiAgendaHttpClient.Current.BuscarAgenda(App.User.id_pessoa,this.startDatePicker.Date);
                 Items = new ObservableCollection<Agenda>(result);
                 MyListView.ItemsSource = Items;
+                MyListView.IsRefreshing = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
+                if (Items.Count == 0)
+                {
+                    slNotFound.IsVisible = true;
+                    MyListView.IsVisible = false;
+                }
+                else
+                {
+                    slNotFound.IsVisible = false;
+                    MyListView.IsVisible = true;
+                }
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Ah não", ex.Message, "Ok");
+                MyListView.IsRefreshing = false;
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
             }
         }
 
@@ -58,13 +76,40 @@ namespace AppAgenda.Pages
 
         private async void startDatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            tbDate.Text = startDatePicker.Date.ToString();
+            if (startDatePicker.Date.Year != DateTime.Now.Year)
+            {
+                DateFormat = "ddd, d MMM, yyyy";
+            }
+            else
+            {
+                if (startDatePicker.Date.Month != DateTime.Now.Month)
+                {
+                    DateFormat = "ddd, d MMMM";
+                }
+                else
+                {
+                    DateFormat = "dddd, d";
+                }
+            }
+            tbDate.Text = startDatePicker.Date.ToString(DateFormat);
             await this.ListaAgenda();
         }
 
         private void tbDate_Clicked(object sender, EventArgs e)
         {
             startDatePicker.Focus();
+        }
+
+        private async void tbAgendar_Clicked(object sender, EventArgs e)
+        {
+            var servicos = new ListViewServicosPage(App.User);
+            //servicos.BindingContext = prof;
+            await Navigation.PushAsync(servicos);
+        }
+
+        private async void MyListView_Refreshing(object sender, EventArgs e)
+        {
+            await this.ListaAgenda();
         }
     }
 }

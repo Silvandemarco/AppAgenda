@@ -17,7 +17,7 @@ namespace AppAgenda.Clients
         private ApiAgendaHttpClient()
         {
             _HttpClient = new HttpClient();
-            _Dominio = "192.168.0.107";
+            _Dominio = "192.168.0.108";
         }
 
         private readonly HttpClient _HttpClient;
@@ -163,12 +163,12 @@ namespace AppAgenda.Clients
                 using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/validaLogin", content))
                 {
                     if (!response.IsSuccessStatusCode)
-                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+                        throw new InvalidOperationException("Ops, email ou senha incorreto.");
 
                     var result = await response.Content.ReadAsStringAsync();
 
                     if (string.IsNullOrWhiteSpace(result))
-                        throw new InvalidOperationException("Algo de errado, não de deu certo ao consultar");
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
 
                     return JsonConvert.DeserializeObject<bool>(result);
                 }
@@ -497,11 +497,11 @@ namespace AppAgenda.Clients
             }
         }
 
-        public async Task<List<Agenda>> BuscarAgendaCliente(int cliente, int mes, int ano)
+        public async Task<List<Agenda>> BuscarAgendaCliente(int cliente, int mes, int ano, int profissional)
         {
             try
             {
-                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/agendaCliente?pessoa={cliente}&mes={mes}&ano={ano}"))
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/agendaCliente?pessoa={cliente}&mes={mes}&ano={ano}&profissional={profissional}"))
                 {
                     if (!response.IsSuccessStatusCode)
                         throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
@@ -649,6 +649,57 @@ namespace AppAgenda.Clients
                 throw ex;
             }
         }
+
+        public async Task<List<Cliente>> BuscarClientes(int id)
+        {
+            try
+            {
+                if (id == 0)
+                    throw new InvalidOperationException("ID não informado");
+
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/clientes?id={id}"))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<List<Cliente>>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> RecuperaSenha(string _email)
+        {
+            
+            try
+            {
+                using (var response = await _HttpClient.GetAsync($"http://{_Dominio}/recuperaSenha?email={_email}"))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
     }
 
 
@@ -676,6 +727,16 @@ namespace AppAgenda.Clients
         public string enderecoCompleto
         {
             get => endereco + ", " + bairro + ", " + cidade.nome;
+        }
+    }
+
+    public class Cliente : Pessoa
+    {
+        public DateTime ultimo_agendamento { get; set; }
+        public int qtd_agendamento { get; set; }
+        public string dateUltAndQtd
+        {
+            get => string.Format("{0} agendamentos, ultimo {1:dd/MM/yyyy H:mm}", qtd_agendamento, ultimo_agendamento);
         }
     }
 
@@ -796,7 +857,7 @@ namespace AppAgenda.Clients
     public class Resposta
     {
         public bool erro { get; set; }
-        public string id { get; set; }
+        public int id { get; set; }
         public string msg { get; set; }
     }
 

@@ -33,7 +33,7 @@ namespace AppAgenda.Pages
 
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            if (emailEntry.Text != null && passwordEntry.Text != null)
+            if ((emailEntry.Text != null && emailEntry.Text != "") && (passwordEntry.Text != null && passwordEntry.Text != ""))
             {
                 var user = new User
                 {
@@ -53,7 +53,17 @@ namespace AppAgenda.Pages
                             Navigation.InsertPageBefore(PageDestino as Page, this);
                         }
                         DependencyService.Get<IMessage>().LongAlert("Login efetuado com sucesso.");
-                        await Navigation.PopAsync();
+                        //await Navigation.PopAsync();
+                        if (App.User.tipo == "P")
+                        {
+                            //await ReplaceRoot(new ProfissionalTabbedPage());
+                            await Navigation.PopAsync();
+                        }
+                        else
+                        {
+                            //await Navigation.PopToRootAsync();
+                            await Navigation.PopAsync();
+                        }
                     }
                     else
                     {
@@ -73,6 +83,14 @@ namespace AppAgenda.Pages
                 if (passwordEntry.Text == null || passwordEntry.Text == "")
                     lErroPassword.IsVisible = true;
             }
+        }
+
+        async Task ReplaceRoot(Page page)
+        {
+            var root = Navigation.NavigationStack[0];
+            Navigation.InsertPageBefore(page, root);
+            //Navigation.RemovePage(Navigation.NavigationStack[1]);
+            await Navigation.PopToRootAsync();
         }
 
         private void emailEntry_Focused(object sender, FocusEventArgs e)
@@ -116,6 +134,29 @@ namespace AppAgenda.Pages
         private void passwordEntry_Completed(object sender, EventArgs e)
         {
 
+        }
+
+        private async void btEsqueceuSenha_Clicked(object sender, EventArgs e)
+        {
+            if (emailEntry.Text == null || emailEntry.Text == "")
+            {
+                lErroEmail.IsVisible = true;
+                emailEntry.Focus();
+                DependencyService.Get<IMessage>().LongAlert("Informe um email.");
+            }
+            else
+            {
+                try
+                {
+                    var result = await ApiAgendaHttpClient.Current.RecuperaSenha(emailEntry.Text);
+                    //Items = new ObservableCollection<Agenda>(result);
+                    await App.Current.MainPage.DisplayAlert("Senha", result.msg, "Ok");
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Ah não", ex.Message, "Ok");
+                }
+            }
         }
     }
 }

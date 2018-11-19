@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace AppAgenda
+namespace AppAgenda.Behavior
 {
     public class MaskedBehavior : Behavior<Entry>
     {

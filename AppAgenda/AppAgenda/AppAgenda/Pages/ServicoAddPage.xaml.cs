@@ -153,7 +153,7 @@ namespace AppAgenda.Pages
                     {
                         var result = await ApiAgendaHttpClient.Current.DeletarServico(Servico.id_servico);
                         Resposta resposta = result;
-                        DependencyService.Get<IMessage>().LongAlert("Serviço excluido com sucesso.");
+                        DependencyService.Get<IMessage>().LongAlert(resposta.msg);
                         await Navigation.PopAsync();
                     }
                     catch (Exception ex)

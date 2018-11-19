@@ -26,6 +26,7 @@ namespace AppAgenda.Pages
             etNascimento.Date = new DateTime(2000,01,01);
             etNascimento.MinimumDate = new DateTime(1900, 01, 01);
             etNascimento.MaximumDate = DateTime.Now;
+            etName.Focus();
         }
 
         async private void Button_Clicked(object sender, EventArgs e)
@@ -69,9 +70,13 @@ namespace AppAgenda.Pages
                 Pessoa.sobrenome = etSobrenome.Text.Trim();
                 //Pessoa.nascimento = etNascimento.Date.ToString("yyyy-MM-dd");
                 Pessoa.nascimento = etNascimento.Date;
-                Pessoa.telefone = etTelefone.Text.Trim();
+                Pessoa.telefone = etTelefone.Text.Trim().Replace("(","").Replace(")", "").Replace(" ", "").Replace("-", "");
                 Pessoa.email = etEmail.Text.Trim();
                 Pessoa.senha = etSenha.Text;
+                if(swTipo.IsToggled)
+                    Pessoa.tipo = "P";
+                else
+                    Pessoa.tipo = "C";
 
                 await Navigation.PushAsync(new SignUpAddressPage(Pessoa));
             }
