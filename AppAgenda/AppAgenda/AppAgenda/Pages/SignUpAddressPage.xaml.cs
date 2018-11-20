@@ -24,6 +24,17 @@ namespace AppAgenda.Pages
         {
             InitializeComponent();
             this.Pessoa = _pessoa;
+
+            if(Pessoa.cep != "" && Pessoa.cep != null)
+            {
+                etCep.Text = Pessoa.cep;
+                etEndereco.Text = Pessoa.endereco;
+                etNumero.Text = Convert.ToString(Pessoa.numero);
+                etComplemento.Text = Pessoa.complemento;
+                etBairro.Text = Pessoa.bairro;
+                //pKCidade.SelectedIndex = Pessoa.id_cidade;
+                btCadastrar.Text = "Salvar";
+            }
         }
 
         protected async override void OnAppearing()
@@ -40,6 +51,16 @@ namespace AppAgenda.Pages
                 var result = await ApiAgendaHttpClient.Current.BuscarCidades();
                 Items = result;
                 pKCidade.ItemsSource = Items;
+                if (Pessoa.id_cidade != 0)
+                {
+                    for (int x = 0; x < Items.Count; x++)
+                    {
+                        if (Items[x].id_cidade == Pessoa.id_cidade)
+                        {
+                            pKCidade.SelectedIndex = x;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -62,6 +83,21 @@ namespace AppAgenda.Pages
                 //await Navigation.RemovePage();
                 await Navigation.PopToRootAsync(true);
                 //await Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Ah não", ex.Message, "Ok");
+            }
+        }
+
+        async Task AlterarEndereco()
+        {
+            try
+            {
+                var result = await ApiAgendaHttpClient.Current.AlterarEndereco(Pessoa);
+                Resposta resposta = result;
+                DependencyService.Get<IMessage>().LongAlert(resposta.msg);
+                await Navigation.PopAsync();
             }
             catch (Exception ex)
             {
@@ -96,7 +132,10 @@ namespace AppAgenda.Pages
                 //Pessoa.tipo = "C";
                 Pessoa.cidade = Items[pKCidade.SelectedIndex];
 
-                await CadastrarPessoa();
+                if (btCadastrar.Text == "Cadastrar-me")
+                    await CadastrarPessoa();
+                else
+                    await AlterarEndereco();
             }
         }
 

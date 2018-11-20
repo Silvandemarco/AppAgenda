@@ -12,7 +12,7 @@
     <local:ListViewAgendaPage Title="Agenda" Icon="ic_action_event_note.png"/>
     <local:ListViewServicoProfissioalPage Title="Serviços" Icon="ic_action_list_alt.png"/>
     <local:ListViewClientesPage Title="Clientes" Icon="ic_action_people_outline.png"/>
-    <local:HorasDiaSemanaPage Title="Ajustes" Icon="ic_action_settings_applications.png"/>
+    <local:AjustesPage Title="Ajustes" Icon="ic_action_settings_applications.png"/>
     <!--<NavigationPage Title="Agenda" Icon="ic_action_event_note.png">
         <x:Arguments>
             <local:LoginPage />

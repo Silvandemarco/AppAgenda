@@ -6,6 +6,7 @@
         <ToolbarItem x:Name="tbSearch" Order="Primary" Icon="ic_action_search.png" Priority="0" Clicked="tbSearch_Clicked" />
         <ToolbarItem x:Name="tbLogin" Order="Secondary" Text="Login" Priority="1" Clicked="Login_Clicked" />
         <ToolbarItem x:Name="tbProfissionais" Order="Secondary" Text="Profissionais" Priority="2" Clicked="tbProfissionais_Clicked" />
+        <ToolbarItem x:Name="tbAjustes" Order="Secondary" Text="Ajustes" Priority="3" Clicked="tbAjustes_Clicked" />
     </ContentPage.ToolbarItems>
     <StackLayout>
         <SearchBar x:Name="sbPesquisar" Placeholder="Pesquisar" TextChanged="sbPesquisar_TextChanged" Unfocused="sbPesquisar_Unfocused" IsVisible="False" />

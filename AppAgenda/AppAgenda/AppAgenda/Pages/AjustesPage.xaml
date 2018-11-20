@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.AjustesPage"
+             Title="Ajustes">
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView RowHeight="70" x:Name="tbProfissional">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell x:Name="tcSemana" Text="Dias trabalhados" TextColor="Black" Tapped="tcSemana_Tapped" />
+                        <TextCell x:Name="tcDadosP" Text="Alterar meus dados" TextColor="Black" Tapped="tcDados_Tapped" />
+                        <TextCell x:Name="tcEnderecoP" Text="Alterar endereço" TextColor="Black" Tapped="tcEndereco_Tapped" />
+                        <TextCell x:Name="tcSenhaP" Text="Alterar senha" TextColor="Black" Tapped="tcSenha_Tapped" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <TableView RowHeight="70" x:Name="tbCliente">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell x:Name="tcDados" Text="Alterar meus dados" TextColor="Black" Tapped="tcDados_Tapped" />
+                        <TextCell x:Name="tcEndereco" Text="Alterar endereço" TextColor="Black" Tapped="tcEndereco_Tapped" />
+                        <TextCell x:Name="tcSenha" Text="Alterar senha" TextColor="Black" Tapped="tcSenha_Tapped" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

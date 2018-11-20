@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgenda.Pages.AlterarSenhaPage"
+             Title="Alterar senha">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+
+            <StackLayout VerticalOptions="Start">
+                <Label x:Name="lSenha" Text="Senha atual"/>
+                <Entry IsPassword="True" x:Name="etSenhaAntiga" Placeholder="Senha atual" ReturnType="Next" Focused="etSenhaAntiga_Focused" Completed="etSenhaAntiga_Completed" Text="" Unfocused="etSenhaAntiga_Unfocused"/>
+                <Label x:Name="lErroSenha"
+                   Text="Senha incoreta."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label x:Name="lNovaSenha" Text="Nova senha"/>
+                <Entry IsPassword="True" x:Name="etNovaSenha" Placeholder="Digite a nova senha" ReturnType="Next" 
+                       Focused="etNovaSenha_Focused" Completed="etNovaSenha_Completed" Text="" IsEnabled="False" />
+                <Label x:Name="lErroNovaSenha"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+                <Label x:Name="lConfirmaSenha" Text="Confirme a nova senha"/>
+                <Entry IsPassword="True" x:Name="etConfirmaSenha" Placeholder="Digite sua nova senha novamente" ReturnType="Send" 
+                       Focused="etConfirmaSenha_Focused" Completed="etConfirmaSenha_Completed" Text="" IsEnabled="False" Unfocused="etConfirmaSenha_Unfocused" />
+                <Label x:Name="lErroConfirmaSenha"
+                   Text="Complete este dado."
+                   Margin="0,0,0,20"
+                   TextColor="#B00020"
+                   IsVisible="false"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name="btSalvar"  Text="Salvar" Style="{StaticResource Button}"
+                    Clicked="btSalvar_Clicked" HorizontalOptions="FillAndExpand" CornerRadius="50" />
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

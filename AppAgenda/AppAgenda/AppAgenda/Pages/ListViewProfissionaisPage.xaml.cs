@@ -134,5 +134,17 @@ namespace AppAgenda.Pages
         {
             sbPesquisar.IsVisible = false;
         }
+
+        private async void tbAjustes_Clicked(object sender, EventArgs e)
+        {
+            if (!App.IsUserLoggedIn)
+            {
+                await Navigation.PushAsync(new LoginPage(new AjustesPage()));
+            }
+            else
+            {
+                await Navigation.PushAsync(new AjustesPage());
+            }
+        }
     }
 }

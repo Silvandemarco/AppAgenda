@@ -49,14 +49,14 @@
                    Margin="0,0,0,20"
                    TextColor="#B00020"
                    IsVisible="false"/>
-                <Label Text="Senha"/>
-                <Entry IsPassword="True" x:Name="etSenha" Placeholder="Use entre 6 e 20 caracteres" ReturnType="Next" Focused="etSenha_Focused" Completed="etSenha_Completed" Text=""/>
+                <Label x:Name="lSenha" Text="Senha"/>
+                <Entry IsPassword="True" x:Name="etSenha" Placeholder="Digite sua senha" ReturnType="Next" Focused="etSenha_Focused" Completed="etSenha_Completed" Text=""/>
                 <Label x:Name="lErroSenha"
                    Text="Complete este dado."
                    Margin="0,0,0,20"
                    TextColor="#B00020"
                    IsVisible="false"/>
-                <Label Text="Confirme a senha"/>
+                <Label x:Name="lConfirmaSenha" Text="Confirme a senha"/>
                 <Entry IsPassword="True" x:Name="etConfirmaSenha" Placeholder="Digite sua senha novamente" ReturnType="Send" Focused="etConfirmaSenha_Focused" Completed="etConfirmaSenha_Completed" Text=""/>
                 <Label x:Name="lErroConfirmaSenha"
                    Text="Complete este dado."

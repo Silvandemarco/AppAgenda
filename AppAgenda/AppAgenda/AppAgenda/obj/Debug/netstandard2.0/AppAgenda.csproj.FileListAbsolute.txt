@@ -31,3 +31,5 @@ D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgend
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\XamlC.stamp
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.dll
 D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\AppAgenda.pdb
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\AjustesPage.xaml.g.cs
+D:\TCC\AppAgenda\AppAgenda\AppAgenda\AppAgenda\obj\Debug\netstandard2.0\Pages\AlterarSenhaPage.xaml.g.cs

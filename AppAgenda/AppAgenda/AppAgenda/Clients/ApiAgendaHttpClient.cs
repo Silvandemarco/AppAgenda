@@ -163,7 +163,7 @@ namespace AppAgenda.Clients
                 using (var response = await _HttpClient.PostAsync($"http://{_Dominio}/validaLogin", content))
                 {
                     if (!response.IsSuccessStatusCode)
-                        throw new InvalidOperationException("Ops, email ou senha incorreto.");
+                        throw new InvalidOperationException("Ops, senha incorreta.");
 
                     var result = await response.Content.ReadAsStringAsync();
 
@@ -699,7 +699,82 @@ namespace AppAgenda.Clients
                 throw ex;
             }
         }
-        
+
+        public async Task<Resposta> AlterarDados(Pessoa pessoa)
+        {
+            string json = JsonConvert.SerializeObject(pessoa);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PutAsync($"http://{_Dominio}/pessoas", content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> AlterarEndereco(Pessoa pessoa)
+        {
+            string json = JsonConvert.SerializeObject(pessoa);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PutAsync($"http://{_Dominio}/endereco", content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Resposta> AlteraSenha(User user)
+        {
+            string json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                using (var response = await _HttpClient.PutAsync($"http://{_Dominio}/alterarSenha", content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados.");
+
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (string.IsNullOrWhiteSpace(result))
+                        throw new InvalidOperationException("Ops, uma falha impediu a atualização de seus dados, verifique sua coneção com a internet.");
+
+                    return JsonConvert.DeserializeObject<Resposta>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 
 
